@@ -9,7 +9,7 @@ public class Soil : MonoBehaviour, ITimeTracker
     {
         Soil, Watered, Growing, Harvested, Default
     }
-
+    
     public LandStatus landStatus;
 
     public Material DrySoilMat, WetSoilMat, GrowingMat, HarvestedMat, DefaultMat;
@@ -179,4 +179,6 @@ public class Soil : MonoBehaviour, ITimeTracker
             }
         }
     }
+
+    
 }

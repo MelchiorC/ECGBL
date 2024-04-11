@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ShippingBin : InteractableObject
 {
-    public static int hourToShip = 18;
+    public static int hourToShip = 9;
     public static List<ItemSlotData> itemsToShip = new List<ItemSlotData>();
 
     public override void Pickup()

@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Tree
   - Soil
   - Item
+  - Farming Area
   layers:
   - Default
   - TransparentFX
