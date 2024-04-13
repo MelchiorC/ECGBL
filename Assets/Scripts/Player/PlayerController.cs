@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     const string IDLE = "Idle";
     const string WALK = "Walk";
-
+    public UIManager UI;
     CustomActions input;
 
     NavMeshAgent agent;
@@ -65,6 +65,10 @@ public class PlayerController : MonoBehaviour
     {
         FaceTarget();
         SetAnimations();
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            UI.ToggleInventoryPanel();
+        }
 
         //Runs the function that handles all the interaction
         Interact();
@@ -73,9 +77,10 @@ public class PlayerController : MonoBehaviour
     public void Interact()
     {
         //Tool interaction
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             //Interact
+            Debug.Log("tes");
             playerInteraction.Interact();
         }
 

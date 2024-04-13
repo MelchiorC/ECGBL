@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,36 +6,53 @@ using UnityEngine.EventSystems;
 
 public class PopUp : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-
+    public float time = 0.2f;
     public GameObject Hover;
+    public Boolean timeUp = true;
+    
 
     void Start()
     {
-        Hover = GameObject.Find("Scripts/UI/PopUp");
-        if (Hover != null)
-        {
-            Debug.Log("GameObject found");
-            Hover.SetActive(false);
-        }
-        else
-        {
-            Debug.LogWarning("GameObject '3dPopUp' not found!");
-        }
+
+        GameObject parentObject = GameObject.Find("Manager");
+        Hover = parentObject.transform.Find("3dPopUp").gameObject;
         Hover.SetActive(false);
+
     }
+    void Update()
+    {
+        if(timeUp == false)
+        {
+            time -= Time.deltaTime;
+            if(time <= 0)
+            {
+                Hover.SetActive(false);
+                timeUp = true;
+                time = 0.2f;
+            }
+        }
+
+    }
+    // New position for the object
+    public Vector3 newPosition;
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Hover.transform.GetChild(0).GetComponent<TextUI>().shower(eventData.pointerEnter.GetComponent<StatGiver>());
+        
         Hover.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Hover.SetActive(false);
+        timeUp = false;
+        
     }
     public void ReceiveHighlightedPosition(Vector3 position)
     {
-        // Do something with the received position data
-        Debug.Log("Received Highlighted Position: " + position);
+        float yOffset = 2.5f;
+        float zOffset = 3f;
+        newPosition = new Vector3(position.x, position.y + yOffset, position.z +zOffset);
+        Hover.transform.position = newPosition;
     }
 }
 

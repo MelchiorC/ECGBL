@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4839931962215862281}
   m_Layer: 0
   m_Name: Crop
-  m_TagString: Untagged
+  m_TagString: Used
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,15 +42,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 748890034380737929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f717cdbe9be992f40831f0bb2b3fad80, type: 3}
+  m_Script: {fileID: 11500000, guid: a050cc209928e40479da522d416ef24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: {fileID: 7387281809591541158}
+  planted: {fileID: 0}
+  seed: {fileID: 748890034380737929}
   seedling: {fileID: 2114823875324284305, guid: e5cc9c10b8c2bee48b0edfc7f513e7b6,
     type: 3}
   mature: {fileID: 5590055916519654392, guid: b25da4eb632be9140951ae41aab9834f, type: 3}
   old: {fileID: 7657186357632421085, guid: 00e969d48316610439fd8001a08106cc, type: 3}
-  harvestable: {fileID: 5042205085591937639, guid: 513a110659831084a91a8585c38e0922,
+  harvestable: {fileID: 7657186357632421085, guid: 00e969d48316610439fd8001a08106cc,
     type: 3}
   cropState: 0
 --- !u!1001 &7657681203207971063
@@ -141,12 +142,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c86e1017c98788641ba37eee7315116f, type: 3}
---- !u!1 &7387281809591541158 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c86e1017c98788641ba37eee7315116f,
-    type: 3}
-  m_PrefabInstance: {fileID: 7657681203207971063}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7912601370448414492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c86e1017c98788641ba37eee7315116f,

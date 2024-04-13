@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: a050cc209928e40479da522d416ef24c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - planted: {instanceID: 0}
+  - seed: {fileID: 748890034380737929, guid: 796acc10f02552d4092228b943a18c26, type: 3}
+  - seedling: {fileID: 2114823875324284305, guid: e5cc9c10b8c2bee48b0edfc7f513e7b6,
+      type: 3}
+  - mature: {fileID: 5590055916519654392, guid: b25da4eb632be9140951ae41aab9834f,
+      type: 3}
+  - old: {fileID: 7657186357632421085, guid: 00e969d48316610439fd8001a08106cc, type: 3}
+  - harvestable: {fileID: 7657186357632421085, guid: 00e969d48316610439fd8001a08106cc,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

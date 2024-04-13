@@ -24,6 +24,21 @@ public class SoilSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         ApplyToAllChildren(transform);
         
     }
+
+    private void Update()
+    {
+        // Check if the highlighted soil object exists
+        if (highlightedSoil != null)
+        {
+            // Highlight the soil
+            
+
+            // Get the position of the highlighted soil and update the PopUp component
+            PopUp popupScript = GetComponent<PopUp>();
+            popupScript.ReceiveHighlightedPosition(highlightedSoil.position);
+        }
+    }
+
     private Transform highlightedSoil;
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -58,8 +73,7 @@ public class SoilSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             outline.OutlineColor = Color.green;
             outline.OutlineWidth = 7.0f;
 
-            PopUp popupScript = GetComponent<PopUp>();
-            popupScript.ReceiveHighlightedPosition(soil.position);
+            
         }
         else
         {

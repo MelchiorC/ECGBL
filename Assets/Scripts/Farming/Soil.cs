@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Soil : MonoBehaviour, ITimeTracker
 {
-
     public enum LandStatus
     {
         Soil, Watered, Growing, Harvested, Default
     }
     
     public LandStatus landStatus;
+    public Stat status;
 
     public Material DrySoilMat, WetSoilMat, GrowingMat, HarvestedMat, DefaultMat;
     new Renderer renderer;
@@ -31,6 +31,7 @@ public class Soil : MonoBehaviour, ITimeTracker
     // Start is called before the first frame update
     void Start()
     {
+        
         //Get renderer component
         renderer = GetComponent<Renderer>();
 
@@ -150,7 +151,7 @@ public class Soil : MonoBehaviour, ITimeTracker
             cropPlanted = cropObject.GetComponent<CropBehaviour>();
 
             //Plant it with the seed's information
-            cropPlanted.Plant(seedTool);
+            cropPlanted.Plant(seedTool, this);
 
             //Consume the item
             InventoryManager.Instance.ConsumeItem(InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Tool));

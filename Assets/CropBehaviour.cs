@@ -7,6 +7,7 @@ public class CropBehaviour : MonoBehaviour
 {
     //Information on what the crop will grow into
     SeedData seedToGrow;
+    public Soil planted;
 
     [Header("Stages of life")]
     public GameObject seed;
@@ -28,14 +29,14 @@ public class CropBehaviour : MonoBehaviour
 
     //Initialization for the crop gameobject
     //Called when the player plants a seed
-    public void Plant(SeedData seedToGrow)
+    public void Plant(SeedData seedToGrow, Soil soil)
     {
         //Save the seed information
         this.seedToGrow = seedToGrow;
 
         //Instantiate the seedling gameobjects
         seedling = Instantiate(seedToGrow.seedling, transform);
-
+        planted = soil;
         //Instantiate the mature gameobjects
         mature = Instantiate(seedToGrow.mature, transform);
 
@@ -78,14 +79,14 @@ public class CropBehaviour : MonoBehaviour
         //Grow from mature to old
         if (growth >= maxGrowth *3 && cropState == CropState.Mature)
         {
-            SwitchState(CropState.Old);
-        }
-
-        //From old to harvestable
-        if(growth >= maxGrowth *4 && cropState == CropState.Old)
-        {
             SwitchState(CropState.Harvestable);
         }
+        gameObject.SetActive(true);
+        //From old to harvestable
+        //if(growth >= maxGrowth *4 && cropState == CropState.Old)
+        //{
+        //    SwitchState(CropState.Harvestable);
+        //}
 
     }
 
@@ -102,6 +103,7 @@ public class CropBehaviour : MonoBehaviour
         switch (stateToSwitch)
         {
             case CropState.Seed:
+                
                 //Enable the seed gameobject
                 seed.SetActive(true);
                 break;
@@ -122,7 +124,19 @@ public class CropBehaviour : MonoBehaviour
                 harvestable.SetActive(true);
                 //Unparent it to the crop
                 harvestable.transform.parent = null;
-
+                //Debug.Log(change.Microorganism);
+                if(seedToGrow.seedType == "Kentang")
+                {
+                    planted.gameObject.GetComponent<StatGiver>().changeMicro(5, false);
+                    planted.gameObject.GetComponent<StatGiver>().changeHara(5, false);
+                }
+                else
+                {
+                    planted.gameObject.GetComponent<StatGiver>().changeMicro(10, true);
+                    planted.gameObject.GetComponent<StatGiver>().changeHara(10, true);
+                }
+                
+                
                 Destroy (gameObject);
                 break;
         }
