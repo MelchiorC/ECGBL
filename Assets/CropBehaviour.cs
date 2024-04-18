@@ -17,7 +17,7 @@ public class CropBehaviour : MonoBehaviour
     public GameObject harvestable;
 
     //The growth points of the crop
-    int growth;
+    public int growth;
     //How many growth points it takes before it becomes harvestable
     int maxGrowth;
     public enum CropState
@@ -47,12 +47,12 @@ public class CropBehaviour : MonoBehaviour
         ItemData cropToYield = seedToGrow.cropToYield;
 
         //Intstantiate the harvestable crop
-        harvestable = Instantiate(cropToYield.gameModel, transform);
+        harvestable = Instantiate(seedToGrow.harvestable, transform);
 
         //Convert days to grow into hours
         int hoursToGrow = GameTimestamp.DaysToHours(seedToGrow.daysToGrow);
         //Convert it to minutes
-        maxGrowth = GameTimestamp.HoursToMinutes(hoursToGrow);
+        maxGrowth = seedToGrow.daysToGrow;
 
         //Set the initial state to seed
         SwitchState(CropState.Seed);
@@ -123,7 +123,7 @@ public class CropBehaviour : MonoBehaviour
                 //Enable the harvestable gameobject
                 harvestable.SetActive(true);
                 //Unparent it to the crop
-                harvestable.transform.parent = null;
+                //harvestable.transform.parent = null;
                 //Debug.Log(change.Microorganism);
                 if(seedToGrow.seedType == "Kentang")
                 {
@@ -135,9 +135,9 @@ public class CropBehaviour : MonoBehaviour
                     planted.gameObject.GetComponent<StatGiver>().changeMicro(10, true);
                     planted.gameObject.GetComponent<StatGiver>().changeHara(10, true);
                 }
+
                 
                 
-                Destroy (gameObject);
                 break;
         }
 

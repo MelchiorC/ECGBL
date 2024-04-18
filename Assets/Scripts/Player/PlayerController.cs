@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, clickableLayers))
         {
+            
             agent.destination = hit.point;
             if (clickEffect != null)
             {
@@ -80,7 +81,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             //Interact
-            Debug.Log("tes");
             playerInteraction.Interact();
         }
 

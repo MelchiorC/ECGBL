@@ -19,7 +19,10 @@ public class Soil : MonoBehaviour, ITimeTracker
     public GameObject select;
 
     //Cache the time the land was watered
-    GameTimestamp timeWatered;
+    [SerializeField]
+    public GameTimestamp timeWatered;
+    [SerializeField]
+    public GameTimestamp timeWatered2;
 
     [Header("Crops")]
     //The crop prefab to instantiate
@@ -160,21 +163,21 @@ public class Soil : MonoBehaviour, ITimeTracker
 
     public void ClockUpdate(GameTimestamp timestamp)
     {
+        timeWatered2 = timestamp;
         //Checked if 24 hours has passed since last watered
         if(landStatus == LandStatus.Watered)
         {
             //Hours since the land wass watered
             int hoursElapsed = GameTimestamp.CompareTimestamps(timeWatered, timestamp);
-            Debug.Log(hoursElapsed + "Hours since this was watered");
-
             //Grow the planted crop, if any
-            if(cropPlanted != null)
-            {
-                cropPlanted.Grow();
-            }
 
-            if(hoursElapsed > 24)
+            Debug.Log(hoursElapsed);
+            if(hoursElapsed >= 1)
             {
+                if (cropPlanted != null)
+                {
+                    cropPlanted.Grow();
+                }
                 //Dry up (Switch back to soil
                 SwitchLandStatus(LandStatus.Soil);
             }

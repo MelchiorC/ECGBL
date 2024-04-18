@@ -1,10 +1,11 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    public static TimeManager Instance {  get; private set; }
+    public static TimeManager Instance {get; private set; }
 
     [Header("Internal Clock")]
     [SerializeField]
@@ -85,7 +86,13 @@ public class TimeManager : MonoBehaviour
         //Return a cloned instance
         return new GameTimestamp(timestamp);
     }
- 
+    public void skipTimeStamp()
+    {
+        GameTimestamp timer = new GameTimestamp(timestamp);
+        timer.updateDay();
+        timestamp = new GameTimestamp(timer);
+    }
+
     //Handling Listeners
 
 

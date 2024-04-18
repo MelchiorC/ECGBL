@@ -51,8 +51,9 @@ MonoBehaviour:
     type: 3}
   mature: {fileID: 5590055916519654392, guid: b25da4eb632be9140951ae41aab9834f, type: 3}
   old: {fileID: 7657186357632421085, guid: 00e969d48316610439fd8001a08106cc, type: 3}
-  harvestable: {fileID: 7657186357632421085, guid: 00e969d48316610439fd8001a08106cc,
+  harvestable: {fileID: 5042205085591937639, guid: 513a110659831084a91a8585c38e0922,
     type: 3}
+  growth: 0
   cropState: 0
 --- !u!1001 &7657681203207971063
 PrefabInstance:
