@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.AI;
+using System;
 public class PlayerController : MonoBehaviour
 {
     const string IDLE = "Idle";
     const string WALK = "Walk";
+    public Boolean ONui = false;
     public UIManager UI;
     CustomActions input;
+    public TimeSkip Skipper;
+    public ShopShower Shop;
 
     NavMeshAgent agent;
     Animator animator;
@@ -26,6 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         //Get interaction components
         playerInteraction = GetComponentInChildren<PlayerInteraction>();
+        if(Skipper == null) Debug.Log("Error");
     }
     void Awake()
     {
@@ -42,12 +47,17 @@ public class PlayerController : MonoBehaviour
     void ClickToMove()
     {
         RaycastHit hit;
+        if (ONui == true)
+        {
+            return;
+        }
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, clickableLayers))
         {
             
             agent.destination = hit.point;
             if (clickEffect != null)
             {
+                
                 Instantiate(clickEffect, hit.point += new Vector3(0, 0.1f, 0), clickEffect.transform.rotation);
             }
         }
@@ -68,7 +78,14 @@ public class PlayerController : MonoBehaviour
         SetAnimations();
         if(Input.GetKeyDown(KeyCode.B))
         {
+            if (ONui == false) ONui = true;
+            else ONui = false;
             UI.ToggleInventoryPanel();
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Skipper.gameObject.GetComponent<TimeSkip>().TimeSkiper();
+            Shop.gameObject.GetComponent<ShopShower>().ShopShow();
         }
 
         //Runs the function that handles all the interaction
@@ -85,13 +102,13 @@ public class PlayerController : MonoBehaviour
         }
 
         //Item Interaction
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             playerInteraction.ItemInteract();
         }
 
         //Item Keep
-        if (Input.GetButtonDown("Fire3"))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             playerInteraction.ItemKeep();
         }

@@ -29,6 +29,14 @@ public class CropBehaviour : MonoBehaviour
 
     //Initialization for the crop gameobject
     //Called when the player plants a seed
+    private void Start()
+    {
+        if(planted == null)
+        {
+            Debug.Log("planted");
+        }
+        
+    }
     public void Plant(SeedData seedToGrow, Soil soil)
     {
         //Save the seed information

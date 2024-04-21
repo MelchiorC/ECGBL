@@ -3,22 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class TimeSkip : MonoBehaviour
 {
-    public float timeScaleIncrease = 2.0f;
     public Boolean onColl =false;
     public GameObject Player;
-
-    // Update is called once per frame
-    void Update()
+    public void TimeSkiper()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && onColl == true)
+        
+        if (onColl == true)
         {
             TimeManager.Instance.skipTimeStamp();
         }
         
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.name == "Player")

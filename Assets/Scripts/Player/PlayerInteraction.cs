@@ -100,10 +100,12 @@ public class PlayerInteraction : MonoBehaviour
     //Triggered when the player presses the item interaction button
     public void ItemInteract()
     {
+        
         //If the player isn't holding anything, pick up an item
         //Check if there is an interactable selected
         if(selectedInteractable != null)
         {
+            Debug.Log("Tes");
             //Pick it up
             selectedInteractable.Pickup();
         }

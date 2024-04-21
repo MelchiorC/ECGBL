@@ -19,12 +19,13 @@ public class TextUI : MonoBehaviour
     public void shower(StatGiver stats)
     {
         // Call the give() function of StatGiver to get the Microorganism and ZatHara values
-        int microorganism = stats.giveMicroo();
         int zatHara = stats.giveHara();
-
+        int microorganism = stats.giveMicroo();
+        
+        
 
 
         // Set the text of txtComp with the obtained values
-        txtComp.text = string.Format("Microorganism: {0}\nUnsur Hara: {1}", microorganism, zatHara);
+        txtComp.text = string.Format("Microorganism: {0}\n\nUnsur Hara: {1}", microorganism, zatHara);
     }
 }

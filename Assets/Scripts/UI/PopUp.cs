@@ -13,11 +13,9 @@ public class PopUp : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     void Start()
     {
-
         GameObject parentObject = GameObject.Find("Manager");
         Hover = parentObject.transform.Find("3dPopUp").gameObject;
         Hover.SetActive(false);
-
     }
     void Update()
     {
@@ -28,7 +26,7 @@ public class PopUp : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 Hover.SetActive(false);
                 timeUp = true;
-                time = 0.2f;
+                time = 3f;
             }
         }
 
