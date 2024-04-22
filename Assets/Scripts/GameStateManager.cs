@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameStateManager : MonoBehaviour, ITimeTracker
+public class GameStateManager : MonoBehaviour//, ITimeTracker
 {
     public static GameStateManager Instance {  get; private set; }
 
@@ -24,21 +24,17 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
     void Start()
     {
         //Add this to TimeManager's Listener list
-        TimeManager.Instance.RegisterTracker(this);
+        //TimeManager.Instance.RegisterTracker(this);
     }
 
-    public void ClockUpdate(GameTimestamp timestamp)
-    {
-        UpdateShippingState(timestamp);
-    }
+    //public void ClockUpdate(GameTimestamp timestamp)
+    //{
+    //    UpdateShippingState(timestamp);
+    //}
 
-    void UpdateShippingState(GameTimestamp timestamp)
-    {
-        //Check if the hour is here
-        if(timestamp.hour == ShippingBin.hourToShip && timestamp.minute == 0)
-        {
-            ShippingBin.ShipItems();
-            Debug.Log("Item has been shipped");
-        }
-    }
+    //void UpdateShippingState(GameTimestamp timestamp)
+    //{
+    //    ShippingBin.ShipItems();
+    //    Debug.Log("Item has been shipped");  
+    //}
 }
