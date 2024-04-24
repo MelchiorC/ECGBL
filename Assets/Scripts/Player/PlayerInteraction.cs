@@ -105,7 +105,6 @@ public class PlayerInteraction : MonoBehaviour
         //Check if there is an interactable selected
         if(selectedInteractable != null)
         {
-            Debug.Log("Tes");
             //Pick it up
             selectedInteractable.Pickup();
         }

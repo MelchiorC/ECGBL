@@ -1,63 +1,35 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShippingBin : InteractableObject
 {
-    public static int hourToShip = 9;
-    public static List<ItemSlotData> itemsToShip = new List<ItemSlotData>();
-
     public override void Pickup()
     {
-        //Get the item data of the item the player is trying to throw in
         ItemData handSlotItem = InventoryManager.Instance.GetEquippedSlotItem(InventorySlot.InventoryType.Item);
-
-        //If the player is not holding anything, nothing should happen
         if (handSlotItem == null) return;
 
-        //Open Yes No prompt to confirm if the player wants to sell
-        UIManager.Instance.TriggerYesNoPrompt($"Apakah kamu mau menjual {handSlotItem.name} ? ", PlaceItemsInShippingBin);
+        // Prompt to sell the item immediately
+        UIManager.Instance.TriggerYesNoPrompt($"Apakah kamu mau menjual {handSlotItem.name} untuk {handSlotItem.cost} per barang?", ConfirmSell);
     }
 
-    void PlaceItemsInShippingBin()
+    private void ConfirmSell()
     {
-        //Get the ItemSlotData of what the player is holding
+        // Get the ItemSlotData of what the player is holding
         ItemSlotData handSlot = InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Item);
+        if (handSlot == null || handSlot.itemData == null) return;
 
-        //Add the items to the itemsToShipList
-        itemsToShip.Add(new ItemSlotData(handSlot));
+        // Calculate the money to be received
+        int moneyReceived = handSlot.quantity * handSlot.itemData.cost;
 
-        //Empty out the handslot since it's moved to the shipping bin
+        // Add money to player stats
+        PlayerStats.Earn(moneyReceived);
+
+        // Log the transaction
+        Debug.Log($"Sold {handSlot.itemData.name} x {handSlot.quantity} for {moneyReceived}");
+
+        // Clear the hand slot as the item is sold
         handSlot.Empty();
-
-        //Update the changes
         InventoryManager.Instance.RenderHand();
-
-        foreach (ItemSlotData item in itemsToShip)
-        {
-            Debug.Log($"In the shipping bin: {item.itemData.name} x {item.quantity}");
-        }
-    }
-
-    public static void ShipItems()
-    {
-        //Calculate how much the player should receive upon shipping the items
-        int moneyToReceive = TallyItems(itemsToShip);
-        //Convert the items to money
-        PlayerStats.Earn(moneyToReceive);
-        //Empty the shipping bin
-        itemsToShip.Clear();
-    }
-
-    static int TallyItems(List<ItemSlotData> items)
-    {
-        int total = 0;
-        foreach (ItemSlotData item in items)
-        {
-            //Get the item quantity and multiply by the cost value
-            total += item.quantity * item.itemData.cost;
-        }
-        return total;
     }
 }

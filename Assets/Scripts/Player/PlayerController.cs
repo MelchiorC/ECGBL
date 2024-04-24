@@ -122,6 +122,8 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * lookRotationSpeed);
         }
     }
+
+    //Play Animations
     void SetAnimations()
     {
         if (agent.velocity == Vector3.zero)

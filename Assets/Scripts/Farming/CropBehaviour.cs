@@ -7,13 +7,12 @@ public class CropBehaviour : MonoBehaviour
 {
     //Information on what the crop will grow into
     SeedData seedToGrow;
-    public Soil planted;
+    private Soil planted;
 
     [Header("Stages of life")]
     public GameObject seed;
     public GameObject seedling;
     public GameObject mature;
-    public GameObject old;
     public GameObject harvestable;
 
     //The growth points of the crop
@@ -22,7 +21,7 @@ public class CropBehaviour : MonoBehaviour
     int maxGrowth;
     public enum CropState
     {
-        Seed, Seedling, Mature, Old, Harvestable
+        Seed, Seedling, Mature, Harvestable
     }
     //The current stage in the crop's growth
     public CropState cropState;
@@ -47,9 +46,6 @@ public class CropBehaviour : MonoBehaviour
         planted = soil;
         //Instantiate the mature gameobjects
         mature = Instantiate(seedToGrow.mature, transform);
-
-        //Instantiate the old gameobject
-        old = Instantiate(seedToGrow.old, transform);
 
         //Access the crop item data
         ItemData cropToYield = seedToGrow.cropToYield;
@@ -90,12 +86,6 @@ public class CropBehaviour : MonoBehaviour
             SwitchState(CropState.Harvestable);
         }
         gameObject.SetActive(true);
-        //From old to harvestable
-        //if(growth >= maxGrowth *4 && cropState == CropState.Old)
-        //{
-        //    SwitchState(CropState.Harvestable);
-        //}
-
     }
 
     //Function to handle the state changes
@@ -105,34 +95,31 @@ public class CropBehaviour : MonoBehaviour
         seed.SetActive(false);
         seedling.SetActive(false);
         mature.SetActive(false);
-        old.SetActive(false);
         harvestable.SetActive(false);
 
         switch (stateToSwitch)
         {
             case CropState.Seed:
-                
                 //Enable the seed gameobject
                 seed.SetActive(true);
                 break;
+
             case CropState.Seedling:
                 //Enable the seedling gameobject
                 seedling.SetActive(true);
                 break;
+
             case CropState.Mature:
                 //Enable the mature gameobject
                 mature.SetActive(true);
                 break;
-            case CropState.Old:
-                //Enable the old gameobject
-                old.SetActive(true);
-                    break;
+
             case CropState.Harvestable:
                 //Enable the harvestable gameobject
                 harvestable.SetActive(true);
                 //Unparent it to the crop
-                //harvestable.transform.parent = null;
-                //Debug.Log(change.Microorganism);
+                harvestable.transform.parent = null;
+                
                 if(seedToGrow.seedType == "Kentang")
                 {
                     planted.gameObject.GetComponent<StatGiver>().changeMicro(5, false);
@@ -143,9 +130,6 @@ public class CropBehaviour : MonoBehaviour
                     planted.gameObject.GetComponent<StatGiver>().changeMicro(10, true);
                     planted.gameObject.GetComponent<StatGiver>().changeHara(10, true);
                 }
-
-                
-                
                 break;
         }
 
