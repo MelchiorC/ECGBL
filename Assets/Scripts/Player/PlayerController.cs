@@ -9,10 +9,12 @@ public class PlayerController : MonoBehaviour
     const string IDLE = "Idle";
     const string WALK = "Walk";
     public Boolean ONui = false;
+    private int val = 0;
     public UIManager UI;
     CustomActions input;
     public TimeSkip Skipper;
     public ShopShower Shop;
+    public ShippingBin Bin;
 
     NavMeshAgent agent;
     Animator animator;
@@ -87,6 +89,12 @@ public class PlayerController : MonoBehaviour
             Skipper.gameObject.GetComponent<TimeSkip>().TimeSkiper();
             Shop.gameObject.GetComponent<ShopShower>().ShopShow();
         }
+        val = Shop.gameObject.GetComponent<ShopShower>().UIActive();
+        if (val == 1)
+        {
+            ONui = true;
+        }
+        else ONui = false;
 
         //Runs the function that handles all the interaction
         Interact();

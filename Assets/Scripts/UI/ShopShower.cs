@@ -34,9 +34,13 @@ public class ShopShower : MonoBehaviour
 
     public int UIActive()
     {
-        if(isON == true)
+        if (isON == true)
         {
             val = 1;
+        }
+        if(isON == false)
+        {
+            val = 0;
         }
         return val;
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShippingBin : InteractableObject
 {
+
     public override void Pickup()
     {
         ItemData handSlotItem = InventoryManager.Instance.GetEquippedSlotItem(InventorySlot.InventoryType.Item);
