@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopListingManager : MonoBehaviour
 {
@@ -8,6 +9,17 @@ public class ShopListingManager : MonoBehaviour
     public GameObject shopListing;
     //The transform of the grid to instantiate the entries on
     public Transform listingGrid;
+
+    //Variables to keep track of what the player is trying to purchase (selection)
+    ItemData itemToBuy;
+    int quantity;
+
+    [Header("Confirmation Screen")]
+    public GameObject confirmationScreen;
+    public Text confirmationPrompt;
+    public Text quantityText;
+    public Text costCalculationText;
+    public Button purchaseButton;
 
     public void RenderShop(List<ItemData> shopItems)
     {
@@ -29,5 +41,64 @@ public class ShopListingManager : MonoBehaviour
             //Assign it the shop item and display listing
             listingGameObject.GetComponent<ShopListing>().Display(shopItem);
         }
+    }
+
+    public void OpenConfirmationScreen(ItemData item)
+    {
+        itemToBuy = item;
+        quantity = 1;
+        RenderConfirmationScreen();
+    }
+
+    public void RenderConfirmationScreen()
+    {
+        confirmationScreen.SetActive(true);
+
+        confirmationPrompt.text = $"Beli {itemToBuy.name}?";
+
+        quantityText.text = "x" + quantity;
+
+        int cost = itemToBuy.cost * quantity;
+
+        int playerMoneyLeft = PlayerStats.Money - cost;
+
+        //Stop the player from purchasing the item if the player does not have enough money
+        if(playerMoneyLeft < 0)
+        {
+            costCalculationText.text = "Uang Tidak Cukup!";
+            purchaseButton.interactable = false;
+            return;
+        }
+
+        purchaseButton.interactable = true; 
+
+        costCalculationText.text = $"{PlayerStats.Money} > {playerMoneyLeft} ";
+    }
+
+    public void AddQuantity()
+    {
+        quantity++;
+        RenderConfirmationScreen();
+    }
+
+    public void SubstractQuantity()
+    {
+        if(quantity > 1)
+        {
+            quantity--;
+        }
+        RenderConfirmationScreen();
+    }
+    
+    //Purchase the item and close the confirmation screen
+    public void ConfirmPurchase()
+    {
+        Shop.Purchase(itemToBuy, quantity);
+        confirmationScreen.SetActive(false);
+    }
+
+    public void CancelPurchase()
+    {
+        confirmationScreen.SetActive(false);
     }
 }
