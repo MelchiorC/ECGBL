@@ -18992,6 +18992,29 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2032272816}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086202877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7220621166775672181, guid: 343ed5f304f2a70429db51536eb8a177,
+    type: 3}
+  m_PrefabInstance: {fileID: 6240702975138691651}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1086202878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086202877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ea2b007a8d3684eaea52c90fb3a4a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onColl: 0
+  Player: {fileID: 39902640}
+  ShopUI: {fileID: 1479913480}
+  isON: 0
+  val: 0
 --- !u!4 &1087511472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4249366665093754968, guid: d63ef072447d4a9469ca05b853ce3f46,
@@ -36438,7 +36461,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Shop
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1086202878}
     - target: {fileID: 1597350785797074498, guid: 7c742196c84e2b745bd2cadb5ce7d43d,
         type: 3}
       propertyPath: Skipper
@@ -38562,7 +38585,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7220621166775672181, guid: 343ed5f304f2a70429db51536eb8a177,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1086202878}
   m_SourcePrefab: {fileID: 100100000, guid: 343ed5f304f2a70429db51536eb8a177, type: 3}
 --- !u!1001 &6745891899369103478
 PrefabInstance:
