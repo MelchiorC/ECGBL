@@ -40,7 +40,10 @@ public class TimeManager : MonoBehaviour
         timestamp = new GameTimestamp(0, GameTimestamp.Season.Panas, 1, 6, 0);
         StartCoroutine(TimeUpdate());
     }
-
+    public GameTimestamp TimeGiver()
+    {
+        return timestamp;
+    }
     IEnumerator TimeUpdate()
     {
         while (true)
@@ -74,7 +77,7 @@ public class TimeManager : MonoBehaviour
         //Sun moves 15 degrees in a hour
         //.25 degrees in a minute
         //At midnight (00.00), the angle of the sun should be -90 degrees
-        float sunAngle = .25f * timeInMinutes - 90;
+        float sunAngle = 20+.25f * timeInMinutes - 90;
 
         //Apply the angle of the directional light
         sunTransform.eulerAngles = new Vector3(sunAngle, 0, 0);

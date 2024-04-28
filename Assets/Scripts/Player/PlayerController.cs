@@ -88,14 +88,14 @@ public class PlayerController : MonoBehaviour
         {
             Skipper.gameObject.GetComponent<TimeSkip>().TimeSkiper();
             Shop.gameObject.GetComponent<ShopShower>().ShopShow();
+            if (val == 1)
+            {
+                ONui = true;
+            }
+            else ONui = false;
         }
         val = Shop.gameObject.GetComponent<ShopShower>().UIActive();
-        if (val == 1)
-        {
-            ONui = true;
-        }
-        else ONui = false;
-
+        
         //Runs the function that handles all the interaction
         Interact();
     }
