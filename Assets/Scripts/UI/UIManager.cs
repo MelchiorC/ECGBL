@@ -42,6 +42,9 @@ public class UIManager : MonoBehaviour, ITimeTracker
     [Header("Player Stats")]
     public Text moneyText;
 
+    [Header("Shop")]
+    public ShopListingManager shopListingManager;
+
     public void Awake()
     {
         //If there is more than one instance, destroy the extra
@@ -201,5 +204,13 @@ public class UIManager : MonoBehaviour, ITimeTracker
     public void RenderPlayerStats()
     {
         moneyText.text = PlayerStats.Money + PlayerStats.CURRENCY;
+    }
+
+    //Open the shop window with the shop items listed
+    public void OpenShop(List<ItemData> shopItems)
+    {
+        //Set active the shop window
+        shopListingManager.gameObject.SetActive(true);
+        shopListingManager.RenderShop(shopItems);
     }
 }
