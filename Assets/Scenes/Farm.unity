@@ -36702,7 +36702,7 @@ PrefabInstance:
     - target: {fileID: 1597350785797074498, guid: 7c742196c84e2b745bd2cadb5ce7d43d,
         type: 3}
       propertyPath: ONui
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1597350785797074498, guid: 7c742196c84e2b745bd2cadb5ce7d43d,
         type: 3}
@@ -39096,6 +39096,4 @@ SceneRoots:
   - {fileID: 1904199232}
   - {fileID: 6240702975138691651}
   - {fileID: 623342835}
-  - {fileID: 1158390921}
-  - {fileID: 1906363783}
   - {fileID: 234670604}
