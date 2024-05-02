@@ -22,7 +22,7 @@ MonoBehaviour:
   seedling: {fileID: 7410436148761554468, guid: 6cdcc13c01e6e8a468d42491e5286f57,
     type: 3}
   mature: {fileID: 3406598834453736248, guid: 6b5e9510fe33347468fb3180e09129a2, type: 3}
-  old: {fileID: 6072536713805539635, guid: f9549d53662208c42a7142d853114aa8, type: 3}
   harvestable: {fileID: 7659616847719861739, guid: 5490d6f5b20e7ca41a696d699ac0ea1f,
     type: 3}
+  waste: {fileID: 11400000, guid: 362db1d5331c69a41b42065aa2137798, type: 2}
   seedType: Puera

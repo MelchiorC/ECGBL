@@ -334,6 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 0289ba4d98423304aab5d15326f92dd6, type: 2}
+  waste: {fileID: 11400000, guid: 362db1d5331c69a41b42065aa2137798, type: 2}
 --- !u!23 &7901427899191880070
 MeshRenderer:
   m_ObjectHideFlags: 0

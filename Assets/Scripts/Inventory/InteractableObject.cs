@@ -6,6 +6,7 @@ public class InteractableObject : MonoBehaviour
 {
     //The item information the GameObject is supposed to represent
     public ItemData item;
+    public ItemData waste;
 
     public virtual void Pickup()
     {

@@ -31524,8 +31524,8 @@ MonoBehaviour:
     quantity: 1
   - itemData: {fileID: 11400000, guid: 601ab5b6b581f2d4cbb256bdb6a9635c, type: 2}
     quantity: 5
-  - itemData: {fileID: 0}
-    quantity: 0
+  - itemData: {fileID: 11400000, guid: b3ff550a19648e74dab44c0b6bd981d8, type: 2}
+    quantity: 5
   - itemData: {fileID: 0}
     quantity: 0
   - itemData: {fileID: 0}
@@ -31533,8 +31533,8 @@ MonoBehaviour:
   - itemData: {fileID: 0}
     quantity: 0
   equippedToolSlot:
-    itemData: {fileID: 11400000, guid: b3ff550a19648e74dab44c0b6bd981d8, type: 2}
-    quantity: 1
+    itemData: {fileID: 0}
+    quantity: 0
   itemSlots:
   - itemData: {fileID: 11400000, guid: 0289ba4d98423304aab5d15326f92dd6, type: 2}
     quantity: 3

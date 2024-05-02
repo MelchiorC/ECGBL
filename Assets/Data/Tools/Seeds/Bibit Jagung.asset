@@ -16,8 +16,10 @@ MonoBehaviour:
   thumbnail: {fileID: 21300000, guid: c84f2b93d49ba254bb8b50c9a6abbed9, type: 3}
   gameModel: {fileID: 0}
   cost: 2500
-  daysToGrow: 4
+  daysToGrow: 1
   cropToYield: {fileID: 11400000, guid: ea6d92e0d5da8e845915173440364341, type: 2}
   seedling: {fileID: 0}
   mature: {fileID: 0}
-  old: {fileID: 0}
+  harvestable: {fileID: 0}
+  waste: {fileID: 11400000, guid: 362db1d5331c69a41b42065aa2137798, type: 2}
+  seedType: 
