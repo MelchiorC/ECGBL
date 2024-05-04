@@ -17,6 +17,7 @@ public class SeedData : ItemData
     //The mature gameobject
     public GameObject mature;
 
+    //The harvestable gameobject
     public GameObject harvestable;
 
     public ItemData waste;
