@@ -7,7 +7,7 @@ public class PlayerStats
     public static int Money {  get; private set; }
 
     public const string CURRENCY = ".";
-
+    
     public static void Spend(int cost)
     {
         //Check if the player has enough to spend
