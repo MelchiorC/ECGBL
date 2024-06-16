@@ -19,9 +19,9 @@ public class LightManage : MonoBehaviour
             return;
         if (Application.isPlaying)
         {
-            TimeofDay = timestamp.hour;
-            TimeofDay %= 24f;
-            UpdateLight(TimeofDay / 24f);
+            float TimeofDay = (timestamp.hour*100)+(((float)timestamp.minute /60f)*100);
+            TimeofDay %= 2400f;
+            UpdateLight(TimeofDay / 2400f);
         }
     }
 
@@ -34,7 +34,7 @@ public class LightManage : MonoBehaviour
         {
             DirectionalLight.color = Preset.DirectionalColor.Evaluate(timePercent);
             
-            DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f)-90f, -30f, 0));
+            DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 90f)-22.5f, -30f, 0));
         }
     }
 
