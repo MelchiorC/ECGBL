@@ -20,9 +20,12 @@ public class ShopListingManager : MonoBehaviour
     public Text quantityText;
     public Text costCalculationText;
     public Button purchaseButton;
+    public GameObject ListingGrid;
 
     public void RenderShop(List<ItemData> shopItems)
     {
+        ListingGrid.SetActive(true);
+        confirmationScreen.SetActive(false);
         //Reset the listings if there was a previous one
         if(listingGrid.childCount > 0)
         {
@@ -53,6 +56,8 @@ public class ShopListingManager : MonoBehaviour
     public void RenderConfirmationScreen()
     {
         confirmationScreen.SetActive(true);
+
+        ListingGrid.SetActive(false);
 
         confirmationPrompt.text = $"Beli {itemToBuy.name}?";
 
@@ -100,5 +105,6 @@ public class ShopListingManager : MonoBehaviour
     public void CancelPurchase()
     {
         confirmationScreen.SetActive(false);
+        ListingGrid.SetActive(true);
     }
 }

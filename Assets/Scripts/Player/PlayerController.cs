@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public TimeSkip Skipper;
     public ShopShower Shop;
     public ShippingBin Bin;
+    public GameObject ShippingBinUI;
+    public GameObject ShopUI;
 
     NavMeshAgent agent;
     Animator animator;
@@ -49,7 +51,7 @@ public class PlayerController : MonoBehaviour
     void ClickToMove()
     {
         RaycastHit hit;
-        if (ONui == true)
+        if (ONui == true || ShippingBinUI.active || ShopUI.active)
         {
             return;
         }
@@ -95,6 +97,9 @@ public class PlayerController : MonoBehaviour
             else ONui = false;
         }
         val = Shop.gameObject.GetComponent<ShopShower>().UIActive();
+
+        
+        
         
         //Runs the function that handles all the interaction
         Interact();
@@ -113,6 +118,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             playerInteraction.ItemInteract();
+           
         }
 
         //Item Keep

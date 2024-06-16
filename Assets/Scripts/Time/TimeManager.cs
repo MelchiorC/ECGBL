@@ -65,7 +65,7 @@ public class TimeManager : MonoBehaviour
             listener.ClockUpdate(timestamp);
         }
 
-        UpdateSunMovement();
+        //UpdateSunMovement();
     }
 
     //Day an night cycle
