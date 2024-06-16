@@ -1711,6 +1711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &76938685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2952,6 +2953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &159966784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3009,6 +3011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 3
+  Makro: 0
 --- !u!114 &165407269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3865,6 +3868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &249270328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7447,6 +7451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &424137230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7640,6 +7645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &430340735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7754,6 +7760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 7
   ZatHara: 3
+  Makro: 0
 --- !u!114 &436123226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7786,6 +7793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &440161934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7818,6 +7826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &443082350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8398,6 +8407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 7
   ZatHara: 3
+  Makro: 0
 --- !u!114 &460785234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8518,6 +8528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &485413574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9542,6 +9553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &533273210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10207,6 +10219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &560663785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10239,6 +10252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &563830236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10356,6 +10370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &577840137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11148,6 +11163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &618619715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11180,6 +11196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &618950127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11569,6 +11586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &631766609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12499,6 +12517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 7
+  Makro: 0
 --- !u!114 &664993585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12616,6 +12635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &673013700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12648,6 +12668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &675819921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12680,6 +12701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 5
   ZatHara: 3
+  Makro: 0
 --- !u!114 &676602237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12997,6 +13019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 7
+  Makro: 0
 --- !u!114 &688452506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14222,6 +14245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &773175946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14827,6 +14851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &822000718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15186,6 +15211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 7
+  Makro: 0
 --- !u!114 &841015975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15218,6 +15244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 4
+  Makro: 0
 --- !u!114 &845959609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15326,6 +15353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &849348099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16087,6 +16115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 7
   ZatHara: 3
+  Makro: 0
 --- !u!114 &879963714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16201,6 +16230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 5
   ZatHara: 3
+  Makro: 0
 --- !u!114 &884294571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16245,6 +16275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &889227459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16277,6 +16308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &890252239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16704,6 +16736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 7
+  Makro: 0
 --- !u!114 &902790270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17681,6 +17714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &985237542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17713,6 +17747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 3
+  Makro: 0
 --- !u!114 &988022531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17745,6 +17780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &992779600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17853,6 +17889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1001857396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18327,6 +18364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1029449181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18529,6 +18567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1043946807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18567,6 +18606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1046981984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18675,6 +18715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1056246408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18707,6 +18748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1056279405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18739,6 +18781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 7
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1061448315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19070,6 +19113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1081421070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19131,6 +19175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1087511478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19163,6 +19208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 4
+  Makro: 0
 --- !u!114 &1088296503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19195,6 +19241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1094313841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19227,6 +19274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 7
+  Makro: 0
 --- !u!114 &1094550869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19333,6 +19381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1097773187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19909,6 +19958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1121388394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20515,6 +20565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 4
+  Makro: 0
 --- !u!114 &1138376500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20636,6 +20687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1145008162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20668,6 +20720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1153535619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21198,6 +21251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1186708973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21319,6 +21373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 5
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1192721372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22320,6 +22375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 7
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1262891149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22543,6 +22599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1280995168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23003,6 +23060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 7
+  Makro: 0
 --- !u!114 &1304999586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23035,6 +23093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1308285384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23282,6 +23341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1319742174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23527,6 +23587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1359022225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23571,6 +23632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1386686065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23603,6 +23665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 4
+  Makro: 0
 --- !u!114 &1387048810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23959,6 +24022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1408824014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24072,6 +24136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1413499069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24104,6 +24169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1415300746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24289,6 +24355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1421218683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24642,6 +24709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 7
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1439117954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24674,6 +24742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1442191719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24800,6 +24869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1445810080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24832,6 +24902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1448226140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25704,6 +25775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1485357248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25742,6 +25814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 4
+  Makro: 0
 --- !u!114 &1488498618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25929,6 +26002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1497249152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26037,6 +26111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 7
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1500271231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26069,6 +26144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1512102504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26263,6 +26339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1537611697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26295,6 +26372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1540012325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26587,6 +26665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 7
+  Makro: 0
 --- !u!114 &1551217699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27167,6 +27246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 4
+  Makro: 0
 --- !u!114 &1572192595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27275,6 +27355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1578829812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27307,6 +27388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1580089027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27415,6 +27497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1583389027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27618,6 +27701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 7
+  Makro: 0
 --- !u!114 &1593537195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27820,6 +27904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1603438693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28120,6 +28205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1629557863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28324,6 +28410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1638501134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28432,6 +28519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1644023606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28540,6 +28628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1653475844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28648,6 +28737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1664542350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28680,6 +28770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1697571382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28806,6 +28897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1705285516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28838,6 +28930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1718307856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29030,6 +29123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 4
+  Makro: 0
 --- !u!114 &1722055606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29062,6 +29156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1722066416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29528,6 +29623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1737088747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29646,6 +29742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 5
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1747394440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29937,6 +30034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1766304085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29969,6 +30067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1768386278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30406,6 +30505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 7
+  Makro: 0
 --- !u!114 &1784945479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30702,6 +30802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1795941038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30734,6 +30835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1805274482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30998,6 +31100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1816173374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31036,6 +31139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1827441144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31144,6 +31248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1837184470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31526,6 +31631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 5
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1851921677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31558,6 +31664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1856314956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32212,6 +32319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1883727392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32318,6 +32426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1888094061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32350,6 +32459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1888230981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32534,6 +32644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1894589688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32566,6 +32677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 7
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1895700549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32674,6 +32786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 5
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1896443919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32839,6 +32952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1904245783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32871,6 +32985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 3
+  Makro: 0
 --- !u!114 &1907547808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33071,6 +33186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &1924289758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33103,6 +33219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1926939102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33318,6 +33435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1938775266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33739,6 +33857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1952281275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34015,6 +34134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 4
+  Makro: 0
 --- !u!114 &1961074621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34047,6 +34167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1961750110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34616,6 +34737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &1997334932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34724,6 +34846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &2001361395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34898,6 +35021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 3
+  Makro: 0
 --- !u!114 &2010051893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34930,6 +35054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 5
   ZatHara: 3
+  Makro: 0
 --- !u!114 &2010572771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34962,6 +35087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 5
   ZatHara: 3
+  Makro: 0
 --- !u!114 &2012975435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35237,6 +35363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &2023961579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35364,6 +35491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &2027938922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35548,6 +35676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 2
+  Makro: 0
 --- !u!114 &2038978849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36238,6 +36367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &2054768306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36422,6 +36552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &2063068463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37050,6 +37181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &2086041411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37082,6 +37214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &2087731810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37114,6 +37247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &2092362640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37146,6 +37280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 6
   ZatHara: 4
+  Makro: 0
 --- !u!114 &2094782729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37178,6 +37313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &2095489899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37210,6 +37346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &2097097027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37318,6 +37455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 5
   ZatHara: 3
+  Makro: 0
 --- !u!114 &2101622313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37599,6 +37737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 9
   ZatHara: 1
+  Makro: 0
 --- !u!114 &2105775288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37631,6 +37770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 7
   ZatHara: 3
+  Makro: 0
 --- !u!114 &2107244972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37935,6 +38075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &2118904627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38126,6 +38267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 2
   ZatHara: 1
+  Makro: 0
 --- !u!114 &2125566852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38234,6 +38376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 3
   ZatHara: 2
+  Makro: 0
 --- !u!114 &2135190818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38416,6 +38559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Microorganism: 1
   ZatHara: 2
+  Makro: 0
 --- !u!114 &2141398219
 MonoBehaviour:
   m_ObjectHideFlags: 0
