@@ -7,10 +7,12 @@ using UnityEngine.UI;
 
 public class CompostShower : MonoBehaviour
 {
+
     public GameObject UI;
     public Boolean OnTrigger = false;
     public List<ItemData> craftingItem;
     public List<ItemData> craftable;
+    public List<ItemData> craftingMaterial;
 
     public Boolean CompostUI()
     {
@@ -62,8 +64,8 @@ public class CompostShower : MonoBehaviour
                 }
                 if (found == false)
                 {
-                    UI.transform.Find("Inven").GetChild(i).GetComponent<Image>().sprite = craftingItem[i].thumbnail;
-                    Debug.Log(i);
+                    UI.transform.Find("Inven").GetChild(k).GetComponent<Image>().sprite = craftingItem[i].thumbnail;
+                    k++;
                 }
             }
             return true;
@@ -74,27 +76,18 @@ public class CompostShower : MonoBehaviour
 
     public void clickItem()
     {
-        craftable = new List<ItemData>();
 
-        foreach (ItemData item in craftingItem)
-        {
-            if (item.compostmaterial > 0)
-            {
-                Debug.Log("test");
-                craftable.Add(item);
-            }
-        }
+        if(UI.transform.Find(""))
 
-        // Assuming crafting logic involves combining compostable items
-        // Placeholder logic for crafting
-        if (craftable.Count >= 2)
+
+            if (craftable.Count >= 2)
         {
-            Debug.Log("Two or more compostable items found. Crafting possible.");
-            // Implement your crafting logic here
+            Debug.Log("test1");
+
         }
         else
         {
-            Debug.Log("Not enough compostable items to craft.");
+            Debug.Log("test2");
         }
     }
     public void CraftItems()
@@ -106,6 +99,19 @@ public class CompostShower : MonoBehaviour
     {
         clickItem();
         CraftItems();
+    }
+
+    public void itemMovement()
+    {
+        foreach (ItemData item in craftingItem)
+        {
+            if (item.compostmaterial > 0)
+            {
+                craftable.Add(item);
+            }
+        }
+
+        craftingMaterial = new List<ItemData>();
     }
 
     private void OnTriggerEnter(Collider other)
