@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.AI;
 using System;
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     const string IDLE = "Idle";
