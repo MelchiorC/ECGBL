@@ -209,6 +209,10 @@ public class InventoryManager : MonoBehaviour
         }
         return equippedToolSlot.itemData;
     }
+    public ItemData GetEquippedSlotItem()
+    {
+        return equippedToolSlot.itemData;
+    }
 
     //Get function for the slots (ItemSlotData)
     public ItemSlotData GetEquippedSlot(InventorySlot.InventoryType inventoryType)
@@ -218,6 +222,10 @@ public class InventoryManager : MonoBehaviour
             return equippedItemSlot;
         }
         return equippedToolSlot;
+    }
+    public ItemSlotData GetEquippedSlot()
+    {
+        return equippedItemSlot;
     }
 
     //Get function for the inventory slots
@@ -229,7 +237,11 @@ public class InventoryManager : MonoBehaviour
         }
         return toolSlots;
     }
-    
+    public ItemSlotData[] GetInventorySlots()
+    {
+        return itemSlots;
+    }
+
     //Check if a hand slot has a item
     public bool SlotEquipped(InventorySlot.InventoryType inventoryType)
     {

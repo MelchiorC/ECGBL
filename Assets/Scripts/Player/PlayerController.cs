@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     const string IDLE = "Idle";
     const string WALK = "Walk";
     public Boolean ONui = false;
-    private int val = 0;
+
     public UIManager UI;
     CustomActions input;
     public TimeSkip Skipper;
@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public ShippingBin Bin;
     public GameObject ShippingBinUI;
     public GameObject ShopUI;
+    public GameObject CompostUI;
+    public CompostShower compost;
 
     NavMeshAgent agent;
     Animator animator;
@@ -86,23 +88,12 @@ public class PlayerController : MonoBehaviour
             else ONui = false;
             UI.ToggleInventoryPanel();
         }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Skipper.gameObject.GetComponent<TimeSkip>().TimeSkiper();
-            Shop.gameObject.GetComponent<ShopShower>().ShopShow();
-            if (val == 1)
-            {
-                ONui = true;
-            }
-            else ONui = false;
-        }
-        val = Shop.gameObject.GetComponent<ShopShower>().UIActive();
-
-        
-        
-        
         //Runs the function that handles all the interaction
         Interact();
+        if (!CompostUI.activeInHierarchy)
+        {
+            ONui = false;
+        }
     }
 
     public void Interact()
@@ -117,6 +108,8 @@ public class PlayerController : MonoBehaviour
         //Item Interaction
         if (Input.GetKeyDown(KeyCode.E))
         {
+            ONui = compost.gameObject.GetComponent<CompostShower>().CompostUI();
+            Skipper.gameObject.GetComponent<TimeSkip>().TimeSkiper();
             playerInteraction.ItemInteract();
            
         }

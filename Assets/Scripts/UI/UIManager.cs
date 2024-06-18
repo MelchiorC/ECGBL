@@ -45,6 +45,10 @@ public class UIManager : MonoBehaviour, ITimeTracker
     [Header("Shop")]
     public ShopListingManager shopListingManager;
 
+
+    [Header("TimeSkip")]
+    public TimeSkip skip;
+
     public void Awake()
     {
         //If there is more than one instance, destroy the extra
@@ -213,4 +217,6 @@ public class UIManager : MonoBehaviour, ITimeTracker
         shopListingManager.gameObject.SetActive(true);
         shopListingManager.RenderShop(shopItems);
     }
+
+    
 }

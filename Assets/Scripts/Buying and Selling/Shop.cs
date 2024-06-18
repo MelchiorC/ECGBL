@@ -25,6 +25,7 @@ public class Shop : InteractableObject
     public override void Pickup()
     {
         UIManager.Instance.OpenShop(shopItems);
+
     }
 
 }

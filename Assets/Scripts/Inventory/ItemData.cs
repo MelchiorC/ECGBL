@@ -15,4 +15,7 @@ public class ItemData : ScriptableObject
 
     //The item costs
     public int cost;
+
+    public int compostmaterial;
+
 }
