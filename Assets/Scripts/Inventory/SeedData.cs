@@ -8,7 +8,7 @@ public class SeedData : ItemData
     //Time it takes before the seed matures into crop
     public int daysToGrow;
 
-    //The crop the eed will yield
+    //The crop the seed will yield
     public ItemData cropToYield;
 
     //The seedling gameobject
@@ -17,7 +17,10 @@ public class SeedData : ItemData
     //The mature gameobject
     public GameObject mature;
 
+    //The harvestable gameobject
     public GameObject harvestable;
+
+    public ItemData waste;
 
     public string seedType;
 }

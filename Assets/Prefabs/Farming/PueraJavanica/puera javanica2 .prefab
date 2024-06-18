@@ -83,8 +83,67 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'puera javanica2 '
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4195245145272610137}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2083708084432045156}
   m_SourcePrefab: {fileID: 100100000, guid: 68ff33a417ec0544f91a6d4e4e92eb5d, type: 3}
+--- !u!1 &3406598834453736248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2560228522036745833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4195245145272610137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3406598834453736248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78330a0eab82a574c8cce9662835ab34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 46d9f3103a7c1c74bba7ec481af36335, type: 2}
+  waste: {fileID: 11400000, guid: 362db1d5331c69a41b42065aa2137798, type: 2}
+--- !u!65 &-2083708084432045156
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3406598834453736248}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.04261502, y: 0.07150507, z: 0.28478336}
+  m_Center: {x: -0.000987601, y: -0.007796158, z: -0.022723649}

@@ -7,6 +7,7 @@ public class CropBehaviour : MonoBehaviour
 {
     //Information on what the crop will grow into
     SeedData seedToGrow;
+    SeedData waste;
     private Soil planted;
 
     [Header("Stages of life")]
@@ -49,6 +50,7 @@ public class CropBehaviour : MonoBehaviour
 
         //Access the crop item data
         ItemData cropToYield = seedToGrow.cropToYield;
+        ItemData waste = seedToGrow.waste;
 
         //Intstantiate the harvestable crop
         harvestable = Instantiate(seedToGrow.harvestable, transform);
