@@ -92,15 +92,11 @@ public class PlayerController : MonoBehaviour
         }
         //Runs the function that handles all the interaction
         Interact();
-        if(CompostUI.activeInHierarchy)
-        {
-            ONui = true;
-            
-        }
-        if (!CompostUI.activeInHierarchy)
+        if (CompostUI.activeInHierarchy)
         {
             ONui = false;
         }
+
         num = turnOff.gameObject.GetComponent<CompostUITurnOff>().show();
     }
 
@@ -119,6 +115,12 @@ public class PlayerController : MonoBehaviour
             compost.gameObject.GetComponent<CompostShower>().CompostUI();
             Skipper.gameObject.GetComponent<TimeSkip>().TimeSkiper();
             playerInteraction.ItemInteract();
+            if (CompostUI.activeInHierarchy)
+            {
+                ONui = true;
+
+            }
+            
         }
 
         //Item Keep
