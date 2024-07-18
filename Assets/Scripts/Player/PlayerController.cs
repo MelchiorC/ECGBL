@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
     public GameObject ShopUI;
     public GameObject CompostUI;
     public CompostShower compost;
-
+    public CompostUITurnOff turnOff;
+    int num = 10;
     NavMeshAgent agent;
     Animator animator;
 
@@ -81,6 +82,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         FaceTarget();
+        
         SetAnimations();
         if(Input.GetKeyDown(KeyCode.B))
         {
@@ -90,10 +92,16 @@ public class PlayerController : MonoBehaviour
         }
         //Runs the function that handles all the interaction
         Interact();
+        if(CompostUI.activeInHierarchy)
+        {
+            ONui = true;
+            
+        }
         if (!CompostUI.activeInHierarchy)
         {
             ONui = false;
         }
+        num = turnOff.gameObject.GetComponent<CompostUITurnOff>().show();
     }
 
     public void Interact()
@@ -108,10 +116,9 @@ public class PlayerController : MonoBehaviour
         //Item Interaction
         if (Input.GetKeyDown(KeyCode.E))
         {
-            ONui = compost.gameObject.GetComponent<CompostShower>().CompostUI();
+            compost.gameObject.GetComponent<CompostShower>().CompostUI();
             Skipper.gameObject.GetComponent<TimeSkip>().TimeSkiper();
             playerInteraction.ItemInteract();
-           
         }
 
         //Item Keep
