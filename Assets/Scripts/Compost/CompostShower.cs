@@ -18,6 +18,8 @@ public class CompostShower : MonoBehaviour
     public List<GameObject> resultSlots;
     public int lastEmptyCraftingSlotId;
     public Sprite defaultSprite;
+    [SerializeField]
+    public ItemData compost;
     public Boolean CompostUI()
     {
         if (OnTrigger == true)
@@ -99,7 +101,8 @@ public class CompostShower : MonoBehaviour
     }
     public void CraftItems()
     {
-        
+        resultSlots[0].GetComponent<Image>().sprite = compost.thumbnail;
+        //craftingItem.Add(new ItemData);
     }
 
     public void OnCraftButtonPressed()
@@ -141,6 +144,13 @@ public class CompostShower : MonoBehaviour
                     lastEmptyCraftingSlotId--;
                 }
                 break;
+            case 2:
+                bagSlots[2].GetComponent<Image>().sprite = compost.thumbnail;
+                resultSlots[0].GetComponent<Image>().sprite = defaultSprite;
+                InventoryManager.Instance.ShopToInventory(new ItemSlotData(compost));
+                //calculate last filledBag;
+                break;
+                
         }
     }
 
