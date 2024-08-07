@@ -1,5 +1,7 @@
+using NUnit.Framework.Internal;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class Soil : MonoBehaviour, ITimeTracker
@@ -12,7 +14,9 @@ public class Soil : MonoBehaviour, ITimeTracker
     public LandStatus landStatus;
     public Stat status;
 
-    public Material DrySoilMat, WetSoilMat, GrowingMat, HarvestedMat, DefaultMat;
+    public Material DrySoilMat, CompostMat, CurveMat,WetSoilMat, GrowingMat, HarvestedMat, DefaultMat;
+    public GameObject Default;
+    public GameObject Compost, CurvedCompost;
     new Renderer renderer;
 
     //The selection gameobject to enable when the player is selecting the land
@@ -30,11 +34,11 @@ public class Soil : MonoBehaviour, ITimeTracker
 
     //The crop currently planted on the land
     CropBehaviour cropPlanted = null;
-   
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
         //Get renderer component
         renderer = GetComponent<Renderer>();
 
@@ -46,6 +50,26 @@ public class Soil : MonoBehaviour, ITimeTracker
 
         //Add this to TimeManager's listener list
         TimeManager.Instance.RegisterTracker(this);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("TEST");
+            // code to change from current mesh to another mesh
+            GameObject newObject = Instantiate(Compost, transform.position, transform.rotation);
+            Renderer curr = GetComponent<Renderer>();
+            Renderer newRenderer = newObject.GetComponent<Renderer>();
+            newObject.transform.SetParent(transform.parent);
+            newRenderer.material = DefaultMat;
+            newObject.transform.localScale = transform.localScale;
+            Transform child = transform.GetChild(0);
+            child.SetParent(newObject.transform);
+            CopyAllComponents(gameObject, newObject);
+            newObject.tag = "Soil";
+            Destroy(gameObject);
+        }
     }
     public void SwitchLandStatus(LandStatus statusToSwitch)
     {
@@ -90,11 +114,41 @@ public class Soil : MonoBehaviour, ITimeTracker
         renderer.material = materialToSwitch;
     }
 
+    public void ChangeToCompost()
+    {
+
+    }
+    public void ChangeToCurved()
+    {
+
+    }
+    public void ChangeToDefault()
+    {
+
+    }
+
     public void Select(bool toggle)
     {
         select.SetActive(toggle);
     }
+    private void CopyAllComponents(GameObject original, GameObject copy)
+    {
+        foreach (var originalComponent in original.GetComponents<MonoBehaviour>())
+        {
+            var newComponent = copy.AddComponent(originalComponent.GetType());
+            CopyComponentData(originalComponent as MonoBehaviour, newComponent as MonoBehaviour);
+        }
+    }
 
+    private void CopyComponentData(MonoBehaviour original, MonoBehaviour copy)
+    {
+        var type = original.GetType();
+        var fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (var field in fields)
+        {
+            field.SetValue(copy, field.GetValue(original));
+        }
+    }
     //When the player presses the interact button while selecting this land
     public void Interact()
     {
