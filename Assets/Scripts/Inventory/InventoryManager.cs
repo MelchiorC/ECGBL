@@ -154,7 +154,7 @@ public class InventoryManager : MonoBehaviour
         //Can't find any slot that can be stacked
         return false;
     }
-
+    
     //Handles movement of item from shop to inventory
     public void ShopToInventory(ItemSlotData itemSlotToMove)
     {
