@@ -15,6 +15,8 @@ public class Soil : MonoBehaviour, ITimeTracker
     public Material DrySoilMat, WetSoilMat, GrowingMat, HarvestedMat, DefaultMat;
     new Renderer renderer;
 
+    public GameObject Default, Compost, Curved;
+
     //The selection gameobject to enable when the player is selecting the land
     public GameObject select;
 
@@ -32,6 +34,11 @@ public class Soil : MonoBehaviour, ITimeTracker
     CropBehaviour cropPlanted = null;
    
     // Start is called before the first frame update
+
+    void Update()
+    {
+
+    }
     void Start()
     {
         
