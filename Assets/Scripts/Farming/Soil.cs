@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Soil : MonoBehaviour, ITimeTracker
@@ -13,9 +14,10 @@ public class Soil : MonoBehaviour, ITimeTracker
     public Stat status;
 
     public Material DrySoilMat, WetSoilMat, GrowingMat, HarvestedMat, DefaultMat;
+    public Mesh mesh;
     new Renderer renderer;
 
-    public GameObject Default, Compost, Curved;
+    public GameObject Default, Compost, Curved,CurvedCompost;
 
     //The selection gameobject to enable when the player is selecting the land
     public GameObject select;
@@ -26,6 +28,8 @@ public class Soil : MonoBehaviour, ITimeTracker
     [SerializeField]
     public GameTimestamp timeWatered2;
 
+
+
     [Header("Crops")]
     //The crop prefab to instantiate
     public GameObject cropPrefab;
@@ -35,12 +39,26 @@ public class Soil : MonoBehaviour, ITimeTracker
    
     // Start is called before the first frame update
 
-    void Update()
+    /*void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject Transform = Instantiate(Compost, transform.position, transform.rotation);
+            Transform.transform.localScale = transform.localScale;
 
-    }
+            Renderer newRenderer = Transform.GetComponent<Renderer>();
+
+            Material[] materials = newRenderer.materials;
+            materials[1] = DefaultMat;
+            newRenderer.materials = materials;
+
+            Destroy(gameObject);
+        }
+    }*/
+
     void Start()
     {
+
         
         //Get renderer component
         renderer = GetComponent<Renderer>();
