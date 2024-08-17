@@ -64,7 +64,9 @@ public class PlayerController : MonoBehaviour
             if (clickEffect != null)
             {
                 
-                Instantiate(clickEffect, hit.point += new Vector3(0, 0.1f, 0), clickEffect.transform.rotation);
+                ParticleSystem effect = Instantiate(clickEffect, hit.point += new Vector3(0, 0.1f, 0), clickEffect.transform.rotation);
+
+                Destroy(effect.gameObject, effect.main.duration + effect.main.startLifetime.constantMax);
             }
         }
     }
