@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
@@ -7,17 +8,19 @@ public class Soil : MonoBehaviour, ITimeTracker
 {
     public enum LandStatus
     {
-        Soil, Watered, Growing, Harvested, Default
+        Soil, Compost,Curved,CurvedCompost,Watered, Growing, Harvested, Default
     }
     
     public LandStatus landStatus;
     public Stat status;
 
     public Material DrySoilMat, WetSoilMat, GrowingMat, HarvestedMat, DefaultMat;
-    public Mesh mesh;
-    new Renderer renderer;
+    public Material UsableUV;
 
-    public GameObject Default, Compost, Curved,CurvedCompost;
+    new Renderer renderer;
+    private MeshFilter filter;
+
+    public Mesh Default, Compost, Curved,CurvedCompost;
 
     //The selection gameobject to enable when the player is selecting the land
     public GameObject select;
@@ -39,27 +42,10 @@ public class Soil : MonoBehaviour, ITimeTracker
    
     // Start is called before the first frame update
 
-    /*void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameObject Transform = Instantiate(Compost, transform.position, transform.rotation);
-            Transform.transform.localScale = transform.localScale;
-
-            Renderer newRenderer = Transform.GetComponent<Renderer>();
-
-            Material[] materials = newRenderer.materials;
-            materials[1] = DefaultMat;
-            newRenderer.materials = materials;
-
-            Destroy(gameObject);
-        }
-    }*/
-
     void Start()
     {
+        filter = GetComponent<MeshFilter>();
 
-        
         //Get renderer component
         renderer = GetComponent<Renderer>();
 
@@ -86,6 +72,23 @@ public class Soil : MonoBehaviour, ITimeTracker
             case LandStatus.Soil:
                 //Switch to the soil material
                 materialToSwitch = DrySoilMat;
+                changeToDefault();
+                break;
+
+            case LandStatus.Compost:
+                //Switch mesh and material to compost
+                materialToSwitch = UsableUV;
+                filter.mesh = Compost;
+                break;
+
+            case LandStatus.Curved:
+                materialToSwitch = UsableUV;
+                filter.mesh = Curved;
+                break;
+
+            case LandStatus.CurvedCompost:
+                materialToSwitch = UsableUV;
+                filter.mesh = CurvedCompost;
                 break;
 
             case LandStatus.Watered:
@@ -106,8 +109,9 @@ public class Soil : MonoBehaviour, ITimeTracker
                 break;
 
             case LandStatus.Default:
-                //Switch to Default Material
+                //Switch to Default Material & Mesh
                 materialToSwitch = DefaultMat;
+                filter.mesh = Default;
                 break;
         }
    
@@ -118,6 +122,26 @@ public class Soil : MonoBehaviour, ITimeTracker
     public void Select(bool toggle)
     {
         select.SetActive(toggle);
+    }
+
+    public void changeToCompost()
+    {
+        filter.mesh = Compost;
+    }
+
+    public void changeToCurved()
+    {
+        filter.mesh = Curved;
+    }
+
+    public void changeToCurvedCompost() 
+    {
+        filter.mesh = CurvedCompost;
+    }
+
+    public void changeToDefault()
+    {
+        filter.mesh = Default;
     }
 
     //When the player presses the interact button while selecting this land
