@@ -1,6 +1,7 @@
 using NUnit.Framework.Internal;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class Soil : MonoBehaviour, ITimeTracker
 {
     public enum LandStatus
     {
-        Soil, Compost,Curved,CurvedCompost,Watered, Growing, Harvested, Default
+        Soil, Compost,Curved,CurvedCompost,Watered, Growing, Harvested, Default, Stick
     }
     
     public LandStatus landStatus;
@@ -62,7 +63,6 @@ public class Soil : MonoBehaviour, ITimeTracker
     {
         //Set land status accordingly
         landStatus = statusToSwitch;
-
         
         Material materialToSwitch = DrySoilMat;
        
@@ -78,7 +78,8 @@ public class Soil : MonoBehaviour, ITimeTracker
             case LandStatus.Compost:
                 //Switch mesh and material to compost
                 materialToSwitch = UsableUV;
-                filter.mesh = Compost;
+                if(filter.mesh.name == "Cube.011 Instance") filter.mesh = CurvedCompost;
+                else filter.mesh = Compost;
                 break;
 
             case LandStatus.Curved:
@@ -149,7 +150,6 @@ public class Soil : MonoBehaviour, ITimeTracker
     {
         //Check the player's tool slot
         ItemData toolSlot = InventoryManager.Instance.GetEquippedSlotItem(InventorySlot.InventoryType.Tool);
-
         //If there's nothing equipped, return
         if(!InventoryManager.Instance.SlotEquipped(InventorySlot.InventoryType.Tool))
         {
@@ -168,16 +168,29 @@ public class Soil : MonoBehaviour, ITimeTracker
             switch (toolType)
             {
                 case EquipmentData.ToolType.Shovel:
+                    
                     //Remove the crop from the soil
                     if(cropPlanted != null)
                     {
                         Destroy(cropPlanted.gameObject);
+                        SwitchLandStatus(LandStatus.Default);
+
+                        break;
                     }
-                    SwitchLandStatus(LandStatus.Soil);
+                    SwitchLandStatus(LandStatus.Curved);
                     break;
 
                 case EquipmentData.ToolType.WateringCan:
                     SwitchLandStatus(LandStatus.Watered);
+                    break;
+
+                case EquipmentData.ToolType.Compost:
+                    if (filter.mesh.name == "Cube.011 Instance") filter.mesh = CurvedCompost;
+                    SwitchLandStatus(LandStatus.Compost);
+                    break;
+
+                case EquipmentData.ToolType.Stick:
+                    SwitchLandStatus(LandStatus.Stick);
                     break;
 
                 case EquipmentData.ToolType.Sickle:
@@ -189,12 +202,12 @@ public class Soil : MonoBehaviour, ITimeTracker
         }
         //Try asting the itemdata in the toolslot as SeedData
         SeedData seedTool = toolSlot as SeedData;
-
+        
         ///Conditions for the player to able to plant a seed
         ///1: He is holding a tool of type SeedData
         ///2: The Land State must be either watered or farmland
         ///3. There isn't already a crop that has been planted
-        if (seedTool != null && landStatus != LandStatus.Default && cropPlanted == null)
+        if (seedTool != null && (landStatus == LandStatus.Curved || landStatus == LandStatus.CurvedCompost)&& cropPlanted == null)
         {
             //Instantiate the crop object parented to the land
             GameObject cropObject = Instantiate(cropPrefab, transform);
