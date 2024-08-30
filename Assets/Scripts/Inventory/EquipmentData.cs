@@ -7,7 +7,7 @@ public class EquipmentData : ItemData
 {
     public enum ToolType
     {
-        WateringCan, Shovel, Sickle, Compost
+        WateringCan, Shovel, Sickle, Compost, Stick
     }
     public ToolType toolType;
 }

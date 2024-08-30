@@ -22,8 +22,8 @@ public class CompostShower : MonoBehaviour
     public ItemData compost;
     public Boolean CompostUI()
     {
-       // if (OnTrigger == true)
-        //{
+        if (OnTrigger == true)
+        {
             playerInventory = new List<ItemData>();
             List<ItemData> temp = new List<ItemData>();
             
@@ -75,9 +75,9 @@ public class CompostShower : MonoBehaviour
             }
         }
         return true;
-        //}
+        }
 
-        //return false;
+        return false;
     }
 
     public void clickItem()
