@@ -213,26 +213,26 @@ public class InventoryManager : MonoBehaviour
     {
         return equippedToolSlot.itemData;
     }
-    public List<ItemData> GetAllInventoryItems()
-    { List<ItemData> ret;
-        ret = new List<ItemData>();
+    public List<ItemSlotData> GetAllInventoryItems()
+    { List<ItemSlotData> ret;
+        ret = new List<ItemSlotData>();
         if(equippedToolSlot.itemData != null)
-            ret.Add(equippedToolSlot.itemData);
+            ret.Add(equippedToolSlot);
         if (equippedItemSlot.itemData != null)
-            ret.Add(equippedItemSlot.itemData);
+            ret.Add(equippedItemSlot);
 
         for(int i = 0; i < toolSlots.Length; i++)
         {
             if (toolSlots[i].itemData != null)
             {
-                ret.Add(toolSlots[i].itemData);
+                ret.Add(toolSlots[i]);
             }
         }
         for (int i = 0; i < itemSlots.Length; i++)
         {
             if (itemSlots[i].itemData != null)
             {
-                ret.Add(itemSlots[i].itemData);
+                ret.Add(itemSlots[i]);
             }
         }
         return ret;

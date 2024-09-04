@@ -10,8 +10,8 @@ public class CompostShower : MonoBehaviour
 
     public GameObject UI;
     public Boolean OnTrigger = false;
-    public List<ItemData> playerInventory;
-    public List<ItemData> craftable;
+    public List<ItemSlotData> playerInventory;
+    public List<ItemSlotData> craftable;
     
     public List<GameObject> craftingSlots;
     public List<GameObject> bagSlots;
@@ -20,12 +20,23 @@ public class CompostShower : MonoBehaviour
     public Sprite defaultSprite;
     [SerializeField]
     public ItemData compost;
+    public GameObject draggablePrefab;
+    public List<ItemData> recipe;
+    public static CompostShower instance; 
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
     public Boolean CompostUI()
     {
+        recipe = new List<ItemData>();
         if (OnTrigger == true)
         {
-            playerInventory = new List<ItemData>();
-            List<ItemData> temp = new List<ItemData>();
+            playerInventory = new List<ItemSlotData>();
+            List<ItemSlotData> temp = new List<ItemSlotData>();
             
             UI.SetActive(true);
             playerInventory = InventoryManager.Instance.GetAllInventoryItems();
@@ -35,7 +46,7 @@ public class CompostShower : MonoBehaviour
             {
                 if (temp[i] != null)
                 {
-                    if (temp[i].compostmaterial == 0)
+                    if (temp[i].itemData.compostmaterial == 0)
                     {
                         ints.Add(i);
                     }
@@ -49,7 +60,12 @@ public class CompostShower : MonoBehaviour
             
                 if(k < UI.transform.Find("Inven").childCount)
                 {
-                    UI.transform.Find("Inven").GetChild(k).GetComponent<Image>().sprite = playerInventory[i].thumbnail;
+                   // UI.transform.Find("Inven").GetChild(k).GetComponent<Image>().sprite = playerInventory[i].thumbnail;
+                   
+                    GameObject g = Instantiate(draggablePrefab,UI.transform.Find("Inven"));
+                    g.transform.position = UI.transform.Find("Inven").GetChild(k).transform.position;
+                    g.GetComponent<InventorySlot>().Display(playerInventory[i]);
+                    g.GetComponent<DraggableInventoryCompost>().originSnappingPosition = UI.transform.Find("Inven").GetChild(k).transform.position;
                     k++;
                 }
               
@@ -67,9 +83,9 @@ public class CompostShower : MonoBehaviour
                    
                 }*/
             }
-        foreach (ItemData item in playerInventory)
+        foreach (ItemSlotData item in playerInventory)
         {
-            if (item.compostmaterial > 0)
+            if (item.itemData.compostmaterial > 0)
             {
                 craftable.Add(item);
             }
@@ -79,34 +95,50 @@ public class CompostShower : MonoBehaviour
 
         return false;
     }
-
-    public void clickItem()
+    public bool isCompostRecipe(ItemData data)
     {
-
-        if(UI.transform.Find(""))
-
-
-            if (craftable.Count >= 2)
-        {
-            Debug.Log("test1");
-
-        }
+        if (data.compostmaterial == 1)
+            return true;
         else
+            return false;
+    }
+    public void AddItemToRecipe(ItemData data)
+    {
+        bool found = false;
+        foreach(ItemData item in recipe)
         {
-            Debug.Log("test2"+craftable.Count);
+            if(item == data)
+            {
+                found = true;
+                break;
+            }
+        }
+        if (!found)
+        {
+            recipe.Add(data);
+        }
+       
+        
+    }
+    public void RemoveItemToRecipe(ItemData data)
+    {
+        bool found = false;
+        foreach (ItemData item in recipe)
+        {
+            if (item == data)
+            {
+                found = true;
+                break;
+            }
+        }
+        if (found)
+        {
+            recipe.Remove(data);
         }
     }
-    public void CraftItems()
-    {
-        resultSlots[0].GetComponent<Image>().sprite = compost.thumbnail;
-        //craftingItem.Add(new ItemData);
-    }
+   
 
-    public void OnCraftButtonPressed()
-    {
-        clickItem();
-        CraftItems();
-    }
+   
 
     public void itemMovement(bool isResultSlot, int destId, int originId, int operation, int trueDest )
     {
@@ -120,10 +152,10 @@ public class CompostShower : MonoBehaviour
         {
             //0 from bag to crafting slot, 1 from crafting slot back to bag, 2 from result to bag
             case 0:
-                if (playerInventory[originId].compostmaterial <= 0)
+                if (playerInventory[originId].itemData.compostmaterial <= 0)
                     return;
-                craftingSlots[lastEmptyCraftingSlotId].GetComponent<Image>().sprite = craftable[originId].thumbnail;
-                craftingSlots[lastEmptyCraftingSlotId].GetComponent<OnItemClick>().trueDest = originId;
+                craftingSlots[lastEmptyCraftingSlotId].GetComponent<Image>().sprite = craftable[originId].itemData.thumbnail;
+                //craftingSlots[lastEmptyCraftingSlotId].GetComponent<DraggableInventoryCompost>().trueDest = originId;
                 bagSlots[originId].GetComponent<Image>().sprite = defaultSprite;
                 
                     if(lastEmptyCraftingSlotId < craftingSlots.Count - 1)
@@ -133,7 +165,7 @@ public class CompostShower : MonoBehaviour
                    break;
             case 1:
                 craftingSlots[destId].GetComponent<Image>().sprite = defaultSprite;
-                bagSlots[trueDest].GetComponent<Image>().sprite = craftable[trueDest].thumbnail; ;
+                bagSlots[trueDest].GetComponent<Image>().sprite = craftable[trueDest].itemData.thumbnail; ;
                 if (lastEmptyCraftingSlotId > 0)
                 {
                     lastEmptyCraftingSlotId--;
