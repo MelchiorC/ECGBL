@@ -22,7 +22,9 @@ public class CompostShower : MonoBehaviour
     public ItemData compost;
     public GameObject draggablePrefab;
     public List<ItemData> recipe;
-    public static CompostShower instance; 
+    public static CompostShower instance;
+    List<GameObject> spawnedDraggable;
+    public int k;
     private void Awake()
     {
         if(instance == null)
@@ -33,11 +35,16 @@ public class CompostShower : MonoBehaviour
     public Boolean CompostUI()
     {
         recipe = new List<ItemData>();
+        spawnedDraggable = new List<GameObject>();
         if (OnTrigger == true)
         {
             playerInventory = new List<ItemSlotData>();
             List<ItemSlotData> temp = new List<ItemSlotData>();
-            
+            resultSlots[0].GetComponent<Image>().sprite = null;
+            foreach(GameObject g in craftingSlots)
+            {
+                
+            }
             UI.SetActive(true);
             playerInventory = InventoryManager.Instance.GetAllInventoryItems();
             temp = InventoryManager.Instance.GetAllInventoryItems();
@@ -54,7 +61,7 @@ public class CompostShower : MonoBehaviour
             }
 
             int slots = UI.transform.Find("Inven").childCount;
-            int k = 0;
+             k = 0;
             for (int i = 0; i < playerInventory.Count; i++)
             {
             
@@ -66,6 +73,7 @@ public class CompostShower : MonoBehaviour
                     g.transform.position = UI.transform.Find("Inven").GetChild(k).transform.position;
                     g.GetComponent<InventorySlot>().Display(playerInventory[i]);
                     g.GetComponent<DraggableInventoryCompost>().originSnappingPosition = UI.transform.Find("Inven").GetChild(k).transform.position;
+                    spawnedDraggable.Add(g);
                     k++;
                 }
               
@@ -94,6 +102,14 @@ public class CompostShower : MonoBehaviour
         }
 
         return false;
+    }
+    public void HideUI()
+    {
+        UI.SetActive(false);
+        foreach(GameObject g in spawnedDraggable)
+        {
+            Destroy(g);
+        }
     }
     public bool isCompostRecipe(ItemData data)
     {
@@ -136,9 +152,23 @@ public class CompostShower : MonoBehaviour
             recipe.Remove(data);
         }
     }
-   
+    
+    public void Craft()
+    {
+        GameObject g  = Instantiate(draggablePrefab);
+        g.transform.parent = UI.transform.Find("Inven");
+        g.transform.position = resultSlots[0].transform.position;
+        if(k < UI.transform.Find("Inven").childCount)
+        {
+            g.GetComponent<DraggableInventoryCompost>().originSnappingPosition = UI.transform.Find("Inven").GetChild(k).transform.position;
 
-   
+        }
+        g.GetComponent<InventorySlot>().Display(new ItemSlotData(compost));
+        spawnedDraggable.Add(g);
+        resultSlots[0].GetComponent<Image>().sprite = defaultSprite;
+        InventoryManager.Instance.ShopToInventory(new ItemSlotData(compost));
+    }
+    
 
     public void itemMovement(bool isResultSlot, int destId, int originId, int operation, int trueDest )
     {

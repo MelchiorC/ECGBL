@@ -9,6 +9,7 @@ TagManager:
   - Farming Area
   - Used
   - CraftingSlotCompost
+  - BagCraftingSlot
   layers:
   - Default
   - TransparentFX
