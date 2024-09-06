@@ -76,4 +76,9 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         UIManager.Instance.DisplayItemInfo(null);
     }
+    //Addition
+    public ItemData GetItemSlotData()
+    {
+        return itemToDisplay;
+    }
 }

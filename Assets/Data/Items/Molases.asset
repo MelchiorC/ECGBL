@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dd546a1b9d498143868266de2c9462b, type: 3}
-  m_Name: Waste
+  m_Name: Molases
   m_EditorClassIdentifier: 
-  description: Sisa dari tanaman yang telah dipanen
+  description: Gula cair
   thumbnail: {fileID: 1707595747, guid: f47304ee17d0ca54c9038acdb7c8ad2d, type: 3}
   gameModel: {fileID: 0}
   cost: 0

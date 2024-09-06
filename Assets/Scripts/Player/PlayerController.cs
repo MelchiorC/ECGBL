@@ -110,7 +110,14 @@ public class PlayerController : MonoBehaviour
         //Item Interaction
         if (Input.GetKeyDown(KeyCode.E))
         {
-            ONui = compost.gameObject.GetComponent<CompostShower>().CompostUI();
+            if(!ONui)
+            {
+                ONui = compost.gameObject.GetComponent<CompostShower>().CompostUI();
+
+            }else { 
+                ONui = false;
+                compost.gameObject.GetComponent<CompostShower>().HideUI();
+            }
             Skipper.gameObject.GetComponent<TimeSkip>().TimeSkiper();
             playerInteraction.ItemInteract();
            
