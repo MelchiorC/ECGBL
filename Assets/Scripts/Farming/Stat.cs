@@ -4,10 +4,9 @@ using UnityEngine.PlayerLoop;
 
 public class Stat : MonoBehaviour
 {
-    public int Microorganism;
-    public int ZatHara;
-    public int Makro;
-
+    public bool Water;
+    public bool Compost;
+    public bool Stick;
 }
 
 
