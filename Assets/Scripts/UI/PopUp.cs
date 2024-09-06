@@ -35,7 +35,7 @@ public class PopUp : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Vector3 newPosition;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Hover.transform.GetChild(0).GetComponent<TextUI>().shower(eventData.pointerEnter.GetComponent<StatGiver>());
+
         
         Hover.SetActive(true);
     }

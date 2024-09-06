@@ -14,6 +14,7 @@ public class Soil : MonoBehaviour, ITimeTracker
     
     public LandStatus landStatus;
     public Stat status;
+    public UIHara Hara;
 
     public Material DrySoilMat, WetSoilMat, GrowingMat, HarvestedMat, DefaultMat;
     public Material UsableUV;
@@ -185,7 +186,6 @@ public class Soil : MonoBehaviour, ITimeTracker
                     break;
 
                 case EquipmentData.ToolType.Compost:
-                    if (filter.mesh.name == "Cube.011 Instance") filter.mesh = CurvedCompost;
                     SwitchLandStatus(LandStatus.Compost);
                     break;
 
@@ -195,6 +195,10 @@ public class Soil : MonoBehaviour, ITimeTracker
 
                 case EquipmentData.ToolType.Sickle:
                     SwitchLandStatus(LandStatus.Harvested);
+                    break;
+
+                case EquipmentData.ToolType.PH:
+                    
                     break;
             }
             //We don't need to check for seeds if we have already confirmed the tool to be a equipment
@@ -207,7 +211,7 @@ public class Soil : MonoBehaviour, ITimeTracker
         ///1: He is holding a tool of type SeedData
         ///2: The Land State must be either watered or farmland
         ///3. There isn't already a crop that has been planted
-        if (seedTool != null && (landStatus == LandStatus.Curved || landStatus == LandStatus.CurvedCompost)&& cropPlanted == null)
+        if (seedTool != null && (landStatus == LandStatus.Curved || (landStatus == LandStatus.Compost && filter.mesh.name == "Cube.002 Instance"))&& cropPlanted == null)
         {
             //Instantiate the crop object parented to the land
             GameObject cropObject = Instantiate(cropPrefab, transform);

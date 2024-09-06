@@ -44,6 +44,7 @@ public class OnItemClick : MonoBehaviour, IPointerClickHandler, IDragHandler, IB
         {
             opId = 0;
         }
+        Debug.Log(opId);
         compost.gameObject.GetComponent<CompostShower>().itemMovement(isResult,idDest,idOrigin,opId,trueDest);
     }
 

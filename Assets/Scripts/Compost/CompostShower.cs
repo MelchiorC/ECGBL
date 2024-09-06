@@ -111,9 +111,8 @@ public class CompostShower : MonoBehaviour
     public void itemMovement(bool isResultSlot, int destId, int originId, int operation, int trueDest )
     {
         Debug.Log(originId);
-
+        Debug.Log(destId);
         
-
         
         //
         switch (operation)

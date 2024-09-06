@@ -121,17 +121,6 @@ public class CropBehaviour : MonoBehaviour
                 harvestable.SetActive(true);
                 //Unparent it to the crop
                 harvestable.transform.parent = null;
-                
-                if(seedToGrow.seedType == "Kentang")
-                {
-                    planted.gameObject.GetComponent<StatGiver>().changeMicro(5, false);
-                    planted.gameObject.GetComponent<StatGiver>().changeHara(5, false);
-                }
-                else
-                {
-                    planted.gameObject.GetComponent<StatGiver>().changeMicro(10, true);
-                    planted.gameObject.GetComponent<StatGiver>().changeHara(10, true);
-                }
                 break;
         }
 
