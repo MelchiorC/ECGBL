@@ -40,8 +40,8 @@ public class DraggableInventoryCompost : MonoBehaviour, IPointerClickHandler, ID
         
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
-        Debug.Log(results[1].gameObject.name);
-        Debug.Log(results[1].gameObject.tag);
+        //Debug.Log(results[0].gameObject.name);
+        //Debug.Log(results[0].gameObject.tag);
         if (results[1].gameObject.tag == "CraftingSlotCompost" && CompostShower.instance.isCompostRecipe(gameObject.GetComponent<InventorySlot>().GetItemSlotData()))
         {
             this.gameObject.transform.position = results[1].gameObject.transform.position;
