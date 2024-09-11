@@ -11,52 +11,52 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: -3.8686934
+      value: -2.9112306
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: -1.9069641
+      value: -1.4350096
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: -0.6764804
+      value: -0.5090583
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.17977
+      value: -0.18213998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.22935
+      value: -0.2374
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.12907
+      value: -0.1663
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.079114966
+      value: -0.078525074
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.9664262
+      value: 0.9592135
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.019945724
+      value: 0.022156375
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.24364631
+      value: 0.27065188
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -28.3
+      value: -31.514008
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
@@ -76,7 +76,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
         type: 3}
@@ -101,10 +101,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4195245145272610137}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 68ff33a417ec0544f91a6d4e4e92eb5d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -2083708084432045156}
   m_SourcePrefab: {fileID: 100100000, guid: 68ff33a417ec0544f91a6d4e4e92eb5d, type: 3}
 --- !u!1 &3406598834453736248 stripped
 GameObject:
@@ -126,24 +122,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 46d9f3103a7c1c74bba7ec481af36335, type: 2}
   waste: {fileID: 11400000, guid: 362db1d5331c69a41b42065aa2137798, type: 2}
---- !u!65 &-2083708084432045156
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3406598834453736248}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.04261502, y: 0.07150507, z: 0.28478336}
-  m_Center: {x: -0.000987601, y: -0.007796158, z: -0.022723649}

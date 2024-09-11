@@ -14,6 +14,7 @@ public class CropBehaviour : MonoBehaviour
     public GameObject seed;
     public GameObject seedling;
     public GameObject mature;
+    public GameObject mature2;
     public GameObject harvestable;
 
     //The growth points of the crop
@@ -22,7 +23,7 @@ public class CropBehaviour : MonoBehaviour
     int maxGrowth;
     public enum CropState
     {
-        Seed, Seedling, Mature, Harvestable
+        Seed, Seedling, Mature, Mature2, Harvestable
     }
     //The current stage in the crop's growth
     public CropState cropState;
@@ -47,6 +48,7 @@ public class CropBehaviour : MonoBehaviour
         planted = soil;
         //Instantiate the mature gameobjects
         mature = Instantiate(seedToGrow.mature, transform);
+        mature2 = Instantiate(seedToGrow.mature2, transform);
 
         //Access the crop item data
         ItemData cropToYield = seedToGrow.cropToYield;
@@ -82,8 +84,14 @@ public class CropBehaviour : MonoBehaviour
             SwitchState(CropState.Mature);
         }
 
-        //Grow from mature to old
+        //Grow from mature to mature2
         if (growth >= maxGrowth * 3 && cropState == CropState.Mature)
+        {
+            SwitchState(CropState.Mature2);
+        }
+
+        //Grow from mature to harvestable
+        if (growth >= maxGrowth * 4 && cropState == CropState.Mature2)
         {
             SwitchState(CropState.Harvestable);
         }
@@ -97,6 +105,7 @@ public class CropBehaviour : MonoBehaviour
         seed.SetActive(false);
         seedling.SetActive(false);
         mature.SetActive(false);
+        mature2.SetActive(false);
         harvestable.SetActive(false);
 
         switch (stateToSwitch)
@@ -114,6 +123,11 @@ public class CropBehaviour : MonoBehaviour
             case CropState.Mature:
                 //Enable the mature gameobject
                 mature.SetActive(true);
+                break;
+
+            case CropState.Mature2:
+                //Enable the mature2 gameobjects
+                mature2.SetActive(true);
                 break;
 
             case CropState.Harvestable:
