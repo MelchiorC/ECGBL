@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 07a6894b732ef6d43bec9a5f046129f0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -94,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78330a0eab82a574c8cce9662835ab34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
-  waste: {fileID: 0}
+  item: {fileID: 11400000, guid: c4eacf204b585f84fba22dc891c1607f, type: 2}
+  waste: {fileID: 11400000, guid: 362db1d5331c69a41b42065aa2137798, type: 2}
 --- !u!65 &-6671059058645884646
 BoxCollider:
   m_ObjectHideFlags: 0

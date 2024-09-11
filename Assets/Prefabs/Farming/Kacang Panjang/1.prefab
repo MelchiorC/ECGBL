@@ -70,7 +70,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 19197fd64b1302945ad60171bd99479e,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -3444022989511779123}
+      addedObject: {fileID: -2802883590472131089}
   m_SourcePrefab: {fileID: 100100000, guid: 19197fd64b1302945ad60171bd99479e, type: 3}
 --- !u!1 &6906351967635096977 stripped
 GameObject:
@@ -78,7 +78,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5987856023396350144}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-3444022989511779123
+--- !u!114 &-2802883590472131089
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,11 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a050cc209928e40479da522d416ef24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: {fileID: 748890034380737929, guid: 796acc10f02552d4092228b943a18c26, type: 3}
-  seedling: {fileID: 2114823875324284305, guid: e5cc9c10b8c2bee48b0edfc7f513e7b6,
+  seed: {fileID: 6906351967635096977}
+  seedling: {fileID: 4147259970299803832, guid: c35e2d32c13ac9c4ebe6078291e8a224,
     type: 3}
-  mature: {fileID: 5590055916519654392, guid: b25da4eb632be9140951ae41aab9834f, type: 3}
-  harvestable: {fileID: 7657186357632421085, guid: 00e969d48316610439fd8001a08106cc,
+  mature: {fileID: 3130280893475816669, guid: 954499a8331d23f40b4e7c3e3ae500eb, type: 3}
+  harvestable: {fileID: 1987581186459775009, guid: 72f2c2ddc8cebbd4cbd427c96317dfbc,
     type: 3}
-  growth: 0
+  growth: 1
   cropState: 0

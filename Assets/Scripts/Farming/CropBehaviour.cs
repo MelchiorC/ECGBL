@@ -31,11 +31,11 @@ public class CropBehaviour : MonoBehaviour
     //Called when the player plants a seed
     private void Start()
     {
-        if(planted == null)
+        if (planted == null)
         {
             Debug.Log("planted");
         }
-        
+
     }
     public void Plant(SeedData seedToGrow, Soil soil)
     {
@@ -71,19 +71,19 @@ public class CropBehaviour : MonoBehaviour
         growth++;
 
         //The seed will sprout into a seedling
-        if(growth >= maxGrowth *1 && cropState == CropState.Seed)
+        if (growth >= maxGrowth * 1 && cropState == CropState.Seed)
         {
             SwitchState(CropState.Seedling);
         }
 
         //Grow from seedling to mature
-        if(growth >= maxGrowth *2 && cropState == CropState.Seedling)
+        if (growth >= maxGrowth * 2 && cropState == CropState.Seedling)
         {
             SwitchState(CropState.Mature);
         }
 
         //Grow from mature to old
-        if (growth >= maxGrowth *3 && cropState == CropState.Mature)
+        if (growth >= maxGrowth * 3 && cropState == CropState.Mature)
         {
             SwitchState(CropState.Harvestable);
         }
