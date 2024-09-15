@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0ebc6de5293224d8747bdbf4f1261f, type: 3}
   m_Name: Bibit Kubis
   m_EditorClassIdentifier: 
-  description: Bibit untuk menumbuhkan Kubis
+  description: Bibit kubis (Brassica oleracea) sangat cocok ditanam di dataran tinggi
+    1500 mdpl.
   thumbnail: {fileID: 1444249767, guid: c946f959c0ce42f4b91d4290c26dc2ab, type: 3}
   gameModel: {fileID: 0}
   cost: 0

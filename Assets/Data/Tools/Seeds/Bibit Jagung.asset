@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0ebc6de5293224d8747bdbf4f1261f, type: 3}
   m_Name: Bibit Jagung
   m_EditorClassIdentifier: 
-  description: Bibit untuk menumbuhkan Jagung
+  description: Bibit jagung (Zea mays) cocok ditanam di dataran tinggi 1500 mdpl.
   thumbnail: {fileID: 21300000, guid: c84f2b93d49ba254bb8b50c9a6abbed9, type: 3}
   gameModel: {fileID: 0}
   cost: 2500
