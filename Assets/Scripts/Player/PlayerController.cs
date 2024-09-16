@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public GameObject ShopUI;
     public GameObject CompostUI;
     public CompostShower compost;
+    public GameObject Backpack;
+    public GameObject HaraUI;
 
     NavMeshAgent agent;
     Animator animator;
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour
     void ClickToMove()
     {
         RaycastHit hit;
-        if (ONui == true || ShippingBinUI.active || ShopUI.active)
+        if (ONui == true)
         {
             return;
         }
@@ -86,16 +88,15 @@ public class PlayerController : MonoBehaviour
         SetAnimations();
         if(Input.GetKeyDown(KeyCode.B))
         {
-            if (ONui == false) ONui = true;
-            else ONui = false;
             UI.ToggleInventoryPanel();
         }
         //Runs the function that handles all the interaction
         Interact();
-        if (!CompostUI.activeInHierarchy)
+        if (CompostUI.activeInHierarchy || Backpack.gameObject.activeSelf ||HaraUI.gameObject.activeSelf)
         {
-            ONui = false;
+            ONui = true;
         }
+        else ONui = false;
     }
 
     public void Interact()
@@ -105,6 +106,10 @@ public class PlayerController : MonoBehaviour
         {
             //Interact
             playerInteraction.Interact();
+            if (ONui)
+            {
+                HaraUI.gameObject.SetActive(false);
+            }
         }
 
         //Item Interaction

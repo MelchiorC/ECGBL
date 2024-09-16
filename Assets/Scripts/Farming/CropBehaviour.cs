@@ -6,7 +6,7 @@ using UnityEngine;
 public class CropBehaviour : MonoBehaviour
 {
     //Information on what the crop will grow into
-    SeedData seedToGrow;
+    public SeedData seedToGrow;
     SeedData waste;
     private Soil planted;
 

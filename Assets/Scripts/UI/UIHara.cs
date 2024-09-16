@@ -10,10 +10,10 @@ public class UIHara : MonoBehaviour
     {
         UI.SetActive(true);
     }
-    
-    // Update is called once per frame
-    void Update()
+
+    public void Hide() 
     {
-        
+        UI.SetActive(false);
     }
+
 }

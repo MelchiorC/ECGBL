@@ -10,6 +10,9 @@ TagManager:
   - Used
   - CraftingSlotCompost
   - BagCraftingSlot
+  - Water Icon
+  - Compost Icon
+  - Stick Icon
   layers:
   - Default
   - TransparentFX
