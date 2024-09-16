@@ -5,17 +5,16 @@ using UnityEngine;
 public class LeafMechanism : MonoBehaviour
 {
     public ItemData Leaf;
-    // Initialize timestamp for leaf collection
     public GameTimestamp FirstDay;
+    private bool canGatherLeaf = false; // Flag to check if the player is in the trigger zone
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        // Check if the player is in the trigger zone and presses the 'E' key
+        if (canGatherLeaf && Input.GetKeyDown(KeyCode.E))
         {
             GatherLeaf();
         }
-
-        DisplayLeafCollectionPrompt();
     }
 
     private void GatherLeaf()
@@ -26,6 +25,25 @@ public class LeafMechanism : MonoBehaviour
             FirstDay = TimeManager.Instance.GetGameTimestamp();
             InventoryManager.Instance.EquipHandSlot(Leaf);
             InventoryManager.Instance.HandToInventory(InventorySlot.InventoryType.Item);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if the player has entered the trigger zone
+        if (other.CompareTag("Player"))
+        {
+            canGatherLeaf = true;
+            DisplayLeafCollectionPrompt();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        // Check if the player has exited the trigger zone
+        if (other.CompareTag("Player"))
+        {
+            canGatherLeaf = false;
         }
     }
 
