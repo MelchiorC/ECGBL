@@ -219,12 +219,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landStatus: 0
+  status: {fileID: 0}
+  Hara: {fileID: 0}
   DrySoilMat: {fileID: 2100000, guid: 69e5b447022b1b7439459705d8e7a487, type: 2}
   WetSoilMat: {fileID: 2100000, guid: 3a1bc9d6c49034e4ab2dc79b81601f40, type: 2}
   GrowingMat: {fileID: 2100000, guid: 7bbcfff1b04088d4fa9d3b0c2e9d0040, type: 2}
   HarvestedMat: {fileID: 2100000, guid: 093d79d94a30504408e72dffaa535e14, type: 2}
   DefaultMat: {fileID: 2100000, guid: 0aefd311d58bb894cbc07cab11dd77f6, type: 2}
+  UsableUV: {fileID: 2100000, guid: e532f5ebaed4ae64d96684e659e3e3f8, type: 2}
+  Default: {fileID: 0}
+  Compost: {fileID: 0}
+  Curved: {fileID: 0}
+  CurvedCompost: {fileID: 0}
   select: {fileID: 3859159674358300708}
+  timeWatered:
+    year: 0
+    season: 0
+    day: 0
+    hour: 0
+    minute: 0
+  timeWatered2:
+    year: 0
+    season: 0
+    day: 0
+    hour: 0
+    minute: 0
   cropPrefab: {fileID: 748890034380737929, guid: 796acc10f02552d4092228b943a18c26,
     type: 3}
 --- !u!65 &2224844835647450229

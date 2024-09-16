@@ -12,16 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0ebc6de5293224d8747bdbf4f1261f, type: 3}
   m_Name: Bibit Kentang
   m_EditorClassIdentifier: 
-  description: Bibit untuk menumbuhkan Kentang
+  description: 'Bibit kentang (Solanum tuberosum) sangat cocok untuk dataran tinggi
+    1500 mdpl. '
   thumbnail: {fileID: 21300000, guid: 40b7d9475ee1aa54cb1292dd43d2cc95, type: 3}
   gameModel: {fileID: 748890034380737929, guid: 796acc10f02552d4092228b943a18c26,
     type: 3}
   cost: 2000
+  compostmaterial: 0
   daysToGrow: 1
   cropToYield: {fileID: 11400000, guid: 0289ba4d98423304aab5d15326f92dd6, type: 2}
   seedling: {fileID: 2114823875324284305, guid: e5cc9c10b8c2bee48b0edfc7f513e7b6,
     type: 3}
-  mature: {fileID: 5590055916519654392, guid: b25da4eb632be9140951ae41aab9834f, type: 3}
+  mature: {fileID: 2114823875324284305, guid: e5cc9c10b8c2bee48b0edfc7f513e7b6, type: 3}
+  mature2: {fileID: 5590055916519654392, guid: b25da4eb632be9140951ae41aab9834f, type: 3}
   harvestable: {fileID: 7657186357632421085, guid: 00e969d48316610439fd8001a08106cc,
     type: 3}
   waste: {fileID: 11400000, guid: 362db1d5331c69a41b42065aa2137798, type: 2}

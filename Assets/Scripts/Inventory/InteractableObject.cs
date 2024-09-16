@@ -22,4 +22,10 @@ public class InteractableObject : MonoBehaviour
         //Destroy this instance so as to not have multiple copies
         Destroy(gameObject);
     }
+
+    public bool IsPlayerHoldingItem()
+    {
+        ItemData handSlotItem = InventoryManager.Instance.GetEquippedSlotItem(InventorySlot.InventoryType.Item);
+        return handSlotItem != null;
+    }
 }

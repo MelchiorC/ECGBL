@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6320258682225268468}
-  - component: {fileID: 4839931962215862281}
+  - component: {fileID: 7103391494463039009}
   m_Layer: 0
   m_Name: Crop
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 7912601370448414492}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
---- !u!114 &4839931962215862281
+--- !u!114 &7103391494463039009
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: {fileID: 748890034380737929}
-  seedling: {fileID: 2114823875324284305, guid: e5cc9c10b8c2bee48b0edfc7f513e7b6,
+  seedling: {fileID: 2114823875324284305, guid: acefaa2476ebac946b6951d7afeb0766,
     type: 3}
-  mature: {fileID: 5590055916519654392, guid: b25da4eb632be9140951ae41aab9834f, type: 3}
+  mature: {fileID: 2114823875324284305, guid: e5cc9c10b8c2bee48b0edfc7f513e7b6, type: 3}
+  mature2: {fileID: 5590055916519654392, guid: b25da4eb632be9140951ae41aab9834f, type: 3}
   harvestable: {fileID: 7657186357632421085, guid: 00e969d48316610439fd8001a08106cc,
     type: 3}
   growth: 1

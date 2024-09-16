@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0ebc6de5293224d8747bdbf4f1261f, type: 3}
   m_Name: Bibit Kacang Panjang
   m_EditorClassIdentifier: 
-  description: Bibit untuk menumbuhkan kacang panjang
+  description: Bibit kacang panjang (Vigna unguiculata sesquipedalis) tumbuh baik
+    di dataran tinggi.
   thumbnail: {fileID: 21300000, guid: c84f2b93d49ba254bb8b50c9a6abbed9, type: 3}
   gameModel: {fileID: 6906351967635096977, guid: 026cfcebb31f9bb4fa0c13897c7ba6cc,
     type: 3}
@@ -20,10 +21,11 @@ MonoBehaviour:
   compostmaterial: 0
   daysToGrow: 1
   cropToYield: {fileID: 11400000, guid: c4eacf204b585f84fba22dc891c1607f, type: 2}
-  seedling: {fileID: 4147259970299803832, guid: c35e2d32c13ac9c4ebe6078291e8a224,
+  seedling: {fileID: 6906351967635096977, guid: 026cfcebb31f9bb4fa0c13897c7ba6cc,
     type: 3}
-  mature: {fileID: 3130280893475816669, guid: 954499a8331d23f40b4e7c3e3ae500eb, type: 3}
-  harvestable: {fileID: 1987581186459775009, guid: 72f2c2ddc8cebbd4cbd427c96317dfbc,
+  mature: {fileID: 4147259970299803832, guid: c35e2d32c13ac9c4ebe6078291e8a224, type: 3}
+  mature2: {fileID: 3130280893475816669, guid: 954499a8331d23f40b4e7c3e3ae500eb, type: 3}
+  harvestable: {fileID: 2951936873912458016, guid: 72f2c2ddc8cebbd4cbd427c96317dfbc,
     type: 3}
   waste: {fileID: 11400000, guid: 362db1d5331c69a41b42065aa2137798, type: 2}
   seedType: Kacang Panjang
