@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd546a1b9d498143868266de2c9462b, type: 3}
   m_Name: Kacang Panjang
   m_EditorClassIdentifier: 
-  description: Tanaman perdu semusim yang tumbuhnya menjalar dan merambat
-  thumbnail: {fileID: 21300000, guid: ec01d3495bec7bc4d805462834d32764, type: 3}
-  gameModel: {fileID: 919132149155446097, guid: 07a6894b732ef6d43bec9a5f046129f0,
+  description: Kacang Panjang
+  thumbnail: {fileID: 21300000, guid: 5319487f38107594b9d48e54ed7497a4, type: 3}
+  gameModel: {fileID: 5042205085591937639, guid: 513a110659831084a91a8585c38e0922,
     type: 3}
   cost: 0
   compostmaterial: 0

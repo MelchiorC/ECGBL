@@ -203,8 +203,18 @@ public class Soil : MonoBehaviour, ITimeTracker
                     break;
 
                 case EquipmentData.ToolType.Compost:
-                    status.Compost = true;
+                    
+                    if(status.Compost == false)
+                    {
+                        status.Compost = true;
+                        status.TotalPupuk += 1;
+                    }
+
                     SwitchLandStatus(LandStatus.Compost);
+                    if(status.Water ==true)
+                    {
+                        SwitchLandStatus(LandStatus.Watered);
+                    }
                     break;
 
                 case EquipmentData.ToolType.Stick:
@@ -285,7 +295,6 @@ public class Soil : MonoBehaviour, ITimeTracker
                 SwitchLandStatus(LandStatus.Soil);
                 Debug.Log("tes");
                 status.Water = false;
-                status.Compost = false;
             }
         }
         

@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a050cc209928e40479da522d416ef24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seedToGrow: {fileID: 11400000, guid: 1d233e42e579866419434a185f6c13c2, type: 2}
   seed: {fileID: 6906351967635096977}
   seedling: {fileID: 6906351967635096977}
   mature: {fileID: 4147259970299803832, guid: c35e2d32c13ac9c4ebe6078291e8a224, type: 3}

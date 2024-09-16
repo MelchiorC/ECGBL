@@ -122,6 +122,7 @@ public class CropBehaviour : MonoBehaviour
 
             case CropState.Mature:
                 //Enable the mature gameobject
+                planted.status.Compost = false;
                 mature.SetActive(true);
                 break;
 
@@ -131,10 +132,26 @@ public class CropBehaviour : MonoBehaviour
                 break;
 
             case CropState.Harvestable:
+                harvestable.GetComponent<InteractableObject>().boost += planted.status.TotalPupuk;
+                if (planted.status.LandRotation)
+                {
+                    harvestable.GetComponent<InteractableObject>().boost += 1;
+                }
                 //Enable the harvestable gameobject
+                planted.status.TotalPupuk = 0;
+                planted.status.Compost = false;
                 harvestable.SetActive(true);
+                harvestable.GetComponent<InteractableObject>();
                 //Unparent it to the crop
                 harvestable.transform.parent = null;
+                if (seedToGrow.seedType == "Legume")
+                {
+                    planted.status.LandRotation = true;
+                }
+                else
+                {
+                    planted.status.LandRotation = false;
+                }
                 break;
         }
 

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a050cc209928e40479da522d416ef24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seedToGrow: {fileID: 11400000, guid: 601ab5b6b581f2d4cbb256bdb6a9635c, type: 2}
   seed: {fileID: 748890034380737929}
   seedling: {fileID: 2114823875324284305, guid: acefaa2476ebac946b6951d7afeb0766,
     type: 3}
