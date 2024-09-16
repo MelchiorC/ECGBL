@@ -17,7 +17,7 @@ public class Soil : MonoBehaviour, ITimeTracker
     public UIHara Hara;
 
     public Material DrySoilMat, WetSoilMat, GrowingMat, HarvestedMat, DefaultMat;
-    public Material UsableUV;
+    public Material UsableUV, WateredUV;
 
     new Renderer renderer;
     private MeshFilter filter;
@@ -46,6 +46,8 @@ public class Soil : MonoBehaviour, ITimeTracker
 
     void Start()
     {
+        status = GetComponent<Stat>();
+
         filter = GetComponent<MeshFilter>();
 
         //Get renderer component
@@ -64,7 +66,9 @@ public class Soil : MonoBehaviour, ITimeTracker
     {
         //Set land status accordingly
         landStatus = statusToSwitch;
-        
+
+        Material currentMaterial = renderer.material;
+
         Material materialToSwitch = DrySoilMat;
        
         //Declare what material to switch to
@@ -72,15 +76,26 @@ public class Soil : MonoBehaviour, ITimeTracker
         {
             case LandStatus.Soil:
                 //Switch to the soil material
-                materialToSwitch = DrySoilMat;
-                changeToDefault();
+                materialToSwitch = UsableUV;
+                changeToCurved();
                 break;
 
             case LandStatus.Compost:
                 //Switch mesh and material to compost
+                if (filter.mesh.name == "Cube.011 Instance")
+                {
+                    filter.mesh = CurvedCompost;
+                }
+                else
+                {
+                    filter.mesh = Compost;
+
+                }
+                timeWatered = TimeManager.Instance.GetGameTimestamp();
+                //if (currentMaterial.name == "WateredUV (Instance)") materialToSwitch = WateredUV;
+                
+                Debug.Log(currentMaterial.name);
                 materialToSwitch = UsableUV;
-                if(filter.mesh.name == "Cube.011 Instance") filter.mesh = CurvedCompost;
-                else filter.mesh = Compost;
                 break;
 
             case LandStatus.Curved:
@@ -89,13 +104,14 @@ public class Soil : MonoBehaviour, ITimeTracker
                 break;
 
             case LandStatus.CurvedCompost:
-                materialToSwitch = UsableUV;
+                
                 filter.mesh = CurvedCompost;
                 break;
 
             case LandStatus.Watered:
                 //Switch to Watered material
-                materialToSwitch = WetSoilMat;
+                
+                materialToSwitch = WateredUV;
                 //Cache the time it was watered
                 timeWatered = TimeManager.Instance.GetGameTimestamp();
                 break;
@@ -182,10 +198,12 @@ public class Soil : MonoBehaviour, ITimeTracker
                     break;
 
                 case EquipmentData.ToolType.WateringCan:
+                    status.Water = true;
                     SwitchLandStatus(LandStatus.Watered);
                     break;
 
                 case EquipmentData.ToolType.Compost:
+                    status.Compost = true;
                     SwitchLandStatus(LandStatus.Compost);
                     break;
 
@@ -195,10 +213,28 @@ public class Soil : MonoBehaviour, ITimeTracker
 
                 case EquipmentData.ToolType.Sickle:
                     SwitchLandStatus(LandStatus.Harvested);
+                    Destroy(cropPlanted.gameObject);
+                    SwitchLandStatus(LandStatus.Default);
                     break;
 
                 case EquipmentData.ToolType.PH:
+                    if (cropPlanted != null)
+                    {
+                        if (DatabaseBibit.Instance.CheckTreli(cropPlanted.seedToGrow))
+                        {
+                            UIManager.Instance.OpenUI(status.Water, status.Compost, status.Stick, true);
+                        }
+                        else
+                        {
+                            UIManager.Instance.OpenUI(status.Water, status.Compost, status.Stick, false);
+                        }
+                    }
+                    else
+                    {
+                        UIManager.Instance.OpenUI(status.Water, status.Compost, status.Stick, false);
                     
+                    }
+                        
                     break;
             }
             //We don't need to check for seeds if we have already confirmed the tool to be a equipment
@@ -230,8 +266,9 @@ public class Soil : MonoBehaviour, ITimeTracker
     public void ClockUpdate(GameTimestamp timestamp)
     {
         timeWatered2 = timestamp;
+        
         //Checked if 24 hours has passed since last watered
-        if(landStatus == LandStatus.Watered)
+        if (landStatus == LandStatus.Watered || landStatus == LandStatus.Compost)
         {
             //Hours since the land wass watered
             int hoursElapsed = GameTimestamp.CompareTimestamps(timeWatered, timestamp);
@@ -246,8 +283,12 @@ public class Soil : MonoBehaviour, ITimeTracker
                 }
                 //Dry up (Switch back to soil
                 SwitchLandStatus(LandStatus.Soil);
+                Debug.Log("tes");
+                status.Water = false;
+                status.Compost = false;
             }
         }
+        
     }
 
     

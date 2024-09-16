@@ -49,6 +49,10 @@ public class UIManager : MonoBehaviour, ITimeTracker
     [Header("TimeSkip")]
     public TimeSkip skip;
 
+    [Header("Hara")]
+    public GameObject Hara;
+
+    public HaraImage change;
     public void Awake()
     {
         //If there is more than one instance, destroy the extra
@@ -218,5 +222,11 @@ public class UIManager : MonoBehaviour, ITimeTracker
         shopListingManager.RenderShop(shopItems);
     }
 
-    
+    public void OpenUI(bool water, bool compost, bool stick, bool treli)
+    {
+        change.IsItWatered(water);
+        change.CompostYes(compost);
+        change.StickYes(stick, treli);
+        Hara.gameObject.SetActive(true);
+    }
 }
