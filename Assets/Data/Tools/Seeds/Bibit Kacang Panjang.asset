@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0ebc6de5293224d8747bdbf4f1261f, type: 3}
   m_Name: Bibit Kacang Panjang
   m_EditorClassIdentifier: 
-  description: Bibit kacang panjang (Vigna unguiculata sesquipedalis) tumbuh baik
-    di dataran tinggi.
+  description: Bibit kacang panjang (Vigna unguiculata sesquipedalis) varietas Katrina.
+    Varietas ini dapat tumbuh di dataran tinggi.
   thumbnail: {fileID: 21300000, guid: b5adadd4241a2a1419d63421c302a8e8, type: 3}
   gameModel: {fileID: 6906351967635096977, guid: 026cfcebb31f9bb4fa0c13897c7ba6cc,
     type: 3}

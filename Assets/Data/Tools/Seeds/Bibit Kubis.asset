@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0ebc6de5293224d8747bdbf4f1261f, type: 3}
   m_Name: Bibit Kubis
   m_EditorClassIdentifier: 
-  description: Bibit kubis (Brassica oleracea) sangat cocok ditanam di dataran tinggi
-    1500 mdpl.
+  description: Bibit kubis (Brassica oleracea) varietas Green Nova. Varietas ini
+    cocok ditanam di dataran tinggi dengan ketinggian lebih dari 700 mdpl.
   thumbnail: {fileID: 21300000, guid: cf5edde73e424e149a94d61f2f3d7d48, type: 3}
   gameModel: {fileID: 0}
   cost: 0
