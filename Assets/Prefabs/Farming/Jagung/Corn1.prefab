@@ -93,8 +93,11 @@ MonoBehaviour:
   seedToGrow: {fileID: 11400000, guid: 167d6e5a305fd5e46a31259c05d76a21, type: 2}
   seed: {fileID: 452235754285349755}
   seedling: {fileID: 452235754285349755}
+  seedling2: {fileID: 6941174730537409734, guid: f0fa74eea9a9b2744a1aa3a864e1e7b0,
+    type: 3}
   mature: {fileID: 6941174730537409734, guid: f0fa74eea9a9b2744a1aa3a864e1e7b0, type: 3}
   mature2: {fileID: 5708989449341100348, guid: bfa90053537dc9a4f9d5abe8fdc6b637, type: 3}
+  mature3: {fileID: 5708989449341100348, guid: bfa90053537dc9a4f9d5abe8fdc6b637, type: 3}
   harvestable: {fileID: 6755130378553496700, guid: 2608b424ac1ade244882fe5d334b2d23,
     type: 3}
   growth: 1

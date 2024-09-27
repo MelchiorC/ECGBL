@@ -23,8 +23,11 @@ MonoBehaviour:
   cropToYield: {fileID: 11400000, guid: 0289ba4d98423304aab5d15326f92dd6, type: 2}
   seedling: {fileID: 2114823875324284305, guid: e5cc9c10b8c2bee48b0edfc7f513e7b6,
     type: 3}
+  seedling2: {fileID: 2114823875324284305, guid: e5cc9c10b8c2bee48b0edfc7f513e7b6,
+    type: 3}
   mature: {fileID: 2114823875324284305, guid: e5cc9c10b8c2bee48b0edfc7f513e7b6, type: 3}
   mature2: {fileID: 5590055916519654392, guid: b25da4eb632be9140951ae41aab9834f, type: 3}
+  mature3: {fileID: 5590055916519654392, guid: b25da4eb632be9140951ae41aab9834f, type: 3}
   harvestable: {fileID: 7657186357632421085, guid: 00e969d48316610439fd8001a08106cc,
     type: 3}
   waste: {fileID: 11400000, guid: fd72c20ee4aa0ff4987f588489636cfb, type: 2}

@@ -14,11 +14,17 @@ public class SeedData : ItemData
     //The seedling gameobject
     public GameObject seedling;
 
+    //The seedling2 gameobject
+    public GameObject seedling2;
+
     //The mature gameobject
     public GameObject mature;
 
     //The mature2 gameobject
     public GameObject mature2;
+
+    //The mature3 gameobject
+    public GameObject mature3;
 
     //The harvestable gameobject
     public GameObject harvestable;
