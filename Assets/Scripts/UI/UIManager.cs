@@ -229,4 +229,11 @@ public class UIManager : MonoBehaviour, ITimeTracker
         change.StickYes(stick, treli);
         Hara.gameObject.SetActive(true);
     }
+
+    public void CloseUI()
+    {
+        // Hide the UI elements and deactivate the Hara GameObject
+        Hara.gameObject.SetActive(false);
+    }
+
 }

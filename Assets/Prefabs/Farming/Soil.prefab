@@ -227,6 +227,7 @@ MonoBehaviour:
   HarvestedMat: {fileID: 2100000, guid: 093d79d94a30504408e72dffaa535e14, type: 2}
   DefaultMat: {fileID: 2100000, guid: 0aefd311d58bb894cbc07cab11dd77f6, type: 2}
   UsableUV: {fileID: 2100000, guid: e532f5ebaed4ae64d96684e659e3e3f8, type: 2}
+  WateredUV: {fileID: 0}
   Default: {fileID: 0}
   Compost: {fileID: 0}
   Curved: {fileID: 0}

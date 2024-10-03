@@ -62,6 +62,7 @@ public class Soil : MonoBehaviour, ITimeTracker
         //Add this to TimeManager's listener list
         TimeManager.Instance.RegisterTracker(this);
     }
+
     public void SwitchLandStatus(LandStatus statusToSwitch)
     {
         //Set land status accordingly
@@ -139,7 +140,34 @@ public class Soil : MonoBehaviour, ITimeTracker
 
     public void Select(bool toggle)
     {
+        // Enable or disable the selection indicator
         select.SetActive(toggle);
+
+        // Show the UI only when the land is selected (toggle is true)
+        if (toggle)
+        {
+            // Check if a crop is planted
+            if (cropPlanted != null)
+            {
+                // Check if the planted crop requires a trellis
+                if (DatabaseBibit.Instance.CheckTreli(cropPlanted.seedToGrow))
+                {
+                    // Show UI with trellis option enabled
+                    UIManager.Instance.OpenUI(status.Water, status.Compost, status.Stick, true);
+                }
+                else
+                {
+                    // Show UI without trellis option
+                    UIManager.Instance.OpenUI(status.Water, status.Compost, status.Stick, false);
+                }
+            }
+            
+        }
+        else
+        {
+            // Hide the UI when deselecting the land
+            UIManager.Instance.CloseUI();
+        }
     }
 
     public void changeToCompost()
