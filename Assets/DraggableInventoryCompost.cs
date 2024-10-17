@@ -42,7 +42,7 @@ public class DraggableInventoryCompost : MonoBehaviour, IPointerClickHandler, ID
         EventSystem.current.RaycastAll(eventData, results);
         //Debug.Log(results[0].gameObject.name);
         //Debug.Log(results[0].gameObject.tag);
-        if (results[1].gameObject.tag == "CraftingSlotCompost" && CompostShower.instance.isCompostRecipe(gameObject.GetComponent<InventorySlot>().GetItemSlotData()))
+        if (results[1].gameObject.tag == "CraftingSlotCompost" && compost.isAllowed(gameObject.GetComponent<InventorySlot>().GetItemSlotData()))
         {
             this.gameObject.transform.position = results[1].gameObject.transform.position;
             CompostShower.instance.AddItemToRecipe(gameObject.GetComponent<InventorySlot>().GetItemSlotData());

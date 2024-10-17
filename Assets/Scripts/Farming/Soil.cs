@@ -23,7 +23,7 @@ public class Soil : MonoBehaviour, ITimeTracker
     private MeshFilter filter;
 
     public Mesh Default, Compost, Curved,CurvedCompost;
-
+    
     //The selection gameobject to enable when the player is selecting the land
     public GameObject select;
 
@@ -32,7 +32,7 @@ public class Soil : MonoBehaviour, ITimeTracker
     public GameTimestamp timeWatered;
     [SerializeField]
     public GameTimestamp timeWatered2;
-
+    string lastPlantedCropType = "";
 
 
     [Header("Crops")]
@@ -55,7 +55,7 @@ public class Soil : MonoBehaviour, ITimeTracker
 
         //Set the land to soil by default
         SwitchLandStatus(LandStatus.Default);
-
+         
         //Deselect the land by default
         Select(false);
 
@@ -223,6 +223,7 @@ public class Soil : MonoBehaviour, ITimeTracker
 
                 case EquipmentData.ToolType.Sickle:
                     SwitchLandStatus(LandStatus.Harvested);
+                    cropPlanted.DestroyCrops();
                     Destroy(cropPlanted.gameObject);
                     SwitchLandStatus(LandStatus.Default);
                     break;
@@ -244,7 +245,11 @@ public class Soil : MonoBehaviour, ITimeTracker
                         UIManager.Instance.OpenUI(status.Water, status.Compost, status.Stick, false);
                     
                     }
+
                         
+                    break;
+            case EquipmentData.ToolType.Pesticide:
+                    cropPlanted.RevertDiseaseState();
                     break;
             }
             //We don't need to check for seeds if we have already confirmed the tool to be a equipment
@@ -264,10 +269,20 @@ public class Soil : MonoBehaviour, ITimeTracker
 
             //Access the CropBehaviour of the crop we're going to plant
             cropPlanted = cropObject.GetComponent<CropBehaviour>();
-
+            
             //Plant it with the seed's information
             cropPlanted.Plant(seedTool, this);
-
+            if(lastPlantedCropType == cropPlanted.seedToGrow.seedType)
+            {
+                status.sameCropPlanted++;
+            }else
+            {
+                lastPlantedCropType = cropPlanted.seedToGrow.seedType;
+            }
+            if(status.sameCropPlanted >= 2)
+            {
+                cropPlanted.diseased = true;
+            }
             //Consume the item
             InventoryManager.Instance.ConsumeItem(InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Tool));
         }

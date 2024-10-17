@@ -9,7 +9,9 @@ public class Stat : MonoBehaviour
     public bool Stick;
     public bool LandRotation;
     public bool AdditionalCompost;
-    public int TotalPupuk = 0;
+    public int  TotalPupuk = 0;
+    public int  sameCropPlanted = 0;
+
 }
 
 

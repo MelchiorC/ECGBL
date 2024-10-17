@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.ProBuilder;
 
 public class CropBehaviour : MonoBehaviour
 {
@@ -27,7 +28,8 @@ public class CropBehaviour : MonoBehaviour
     }
     //The current stage in the crop's growth
     public CropState cropState;
-
+    public bool diseased;
+    List<Color[]> materialsColors;
     //Initialization for the crop gameobject
     //Called when the player plants a seed
     private void Start()
@@ -36,6 +38,41 @@ public class CropBehaviour : MonoBehaviour
         {
             Debug.Log("planted");
         }
+        //storing colors references 
+        materialsColors = new List<Color[]>();
+        Debug.Log(seedling.GetComponent<Renderer>().materials);
+        Color[] k = new Color[seedling.GetComponent<Renderer>().materials.Length];
+        for(int i = 0; i < seedling.GetComponent<Renderer>().materials.Length; i++)
+        {
+            k[i] = seedling.GetComponent<Renderer>().materials[i].color;
+        }
+        materialsColors.Add(k);
+        ///
+        k = new Color[mature.GetComponent<Renderer>().materials.Length];
+        for (int i = 0; i < mature.GetComponent<Renderer>().materials.Length; i++)
+        {
+            k[i] = mature.GetComponent<Renderer>().materials[i].color;
+        }
+        materialsColors.Add(k);
+        //
+        k = new Color[mature2.GetComponent<Renderer>().materials.Length];
+        for (int i = 0; i < mature2.GetComponent<Renderer>().materials.Length; i++)
+        {
+            k[i] = mature2.GetComponent<Renderer>().materials[i].color;
+        }
+        materialsColors.Add(k);
+        //
+        k = new Color[harvestable.GetComponent<Renderer>().materials.Length];
+        for (int i = 0; i < harvestable.GetComponent<Renderer>().materials.Length; i++)
+        {
+            k[i] = harvestable.GetComponent<Renderer>().materials[i].color;
+        }
+        materialsColors.Add(k);
+
+     
+        //  materialsColors[1] = ;
+        //  materialsColors[2] = ;
+        //  materialsColors[3] = ;
 
     }
     public void Plant(SeedData seedToGrow, Soil soil)
@@ -65,7 +102,27 @@ public class CropBehaviour : MonoBehaviour
         //Set the initial state to seed
         SwitchState(CropState.Seed);
     }
+    public void RevertDiseaseState()
+    {
+        diseased = false;
 
+         for (int i = 0;i< seedling.GetComponent<Renderer>().materials.Length;i++)
+        {
+            seedling.GetComponent<Renderer>().materials[i].SetColor("_BaseColor", materialsColors[0][i]);
+        }
+        for (int i = 0; i < mature.GetComponent<Renderer>().materials.Length; i++)
+        {
+            mature.GetComponent<Renderer>().materials[i].SetColor("_BaseColor", materialsColors[1][i]);
+        }
+        for (int i = 0; i < mature2.GetComponent<Renderer>().materials.Length; i++)
+        {
+            mature2.GetComponent<Renderer>().materials[i].SetColor("_BaseColor", materialsColors[2][i]);
+        }
+        for (int i = 0; i < harvestable.GetComponent<Renderer>().materials.Length; i++)
+        {
+            harvestable.GetComponent<Renderer>().materials[i].SetColor("_BaseColor", materialsColors[3][i]);
+        }
+    }
     //The crop will grow when watered
     public void Grow()
     {
@@ -113,22 +170,54 @@ public class CropBehaviour : MonoBehaviour
             case CropState.Seed:
                 //Enable the seed gameobject
                 seed.SetActive(true);
+               // if(diseased)
+                //{
+                   // Material[] materials = seed.GetComponent<Renderer>().materials;
+                   // foreach(Material m in materials)
+                   // {
+                     //   m.SetColor ("_BaseColor", new Color(110, 38, 14));
+                    //}
+               // }
                 break;
 
             case CropState.Seedling:
                 //Enable the seedling gameobject
                 seedling.SetActive(true);
+                if (diseased)
+                {
+                    Material[] materials = seedling.GetComponent<Renderer>().materials;
+                    foreach (Material m in materials)
+                    {
+                        m.SetColor("_BaseColor", new Color(0.212f, 0.063f, 0.004f));
+                    }
+                }
                 break;
 
             case CropState.Mature:
                 //Enable the mature gameobject
                 planted.status.Compost = false;
                 mature.SetActive(true);
+                if (diseased)
+                {
+                    Material[] materials = mature.GetComponent<Renderer>().materials;
+                    foreach (Material m in materials)
+                    {
+                        m.SetColor("_BaseColor", new Color(0.212f, 0.063f, 0.004f));
+                    }
+                }
                 break;
 
             case CropState.Mature2:
                 //Enable the mature2 gameobjects
                 mature2.SetActive(true);
+                if (diseased)
+                {
+                    Material[] materials = mature2.GetComponent<Renderer>().materials;
+                    foreach (Material m in materials)
+                    {
+                        m.SetColor("_BaseColor", new Color(0.212f, 0.063f, 0.004f));
+                    }
+                }
                 break;
 
             case CropState.Harvestable:
@@ -136,6 +225,14 @@ public class CropBehaviour : MonoBehaviour
                 if (planted.status.LandRotation)
                 {
                     harvestable.GetComponent<InteractableObject>().boost += 1;
+                }
+                if (diseased)
+                {
+                    Material[] materials = harvestable.GetComponent<Renderer>().materials;
+                    foreach (Material m in materials)
+                    {
+                        m.SetColor("_BaseColor", new Color(0.212f, 0.063f, 0.004f));
+                    }
                 }
                 //Enable the harvestable gameobject
                 planted.status.TotalPupuk = 0;
@@ -157,5 +254,13 @@ public class CropBehaviour : MonoBehaviour
 
         //Set the current crop state to the state we're switching to
         cropState = stateToSwitch;
+    }
+    public void DestroyCrops()
+    {
+        Destroy(seedling);
+        Destroy(seed);
+        Destroy(mature);
+        Destroy(mature2);
+        Destroy(harvestable);
     }
 }

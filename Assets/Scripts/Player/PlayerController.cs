@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     const string IDLE = "Idle";
     const string WALK = "Walk";
-    public Boolean ONui = false;
+    public bool ONui = false;
 
     public UIManager UI;
     CustomActions input;
@@ -18,9 +18,11 @@ public class PlayerController : MonoBehaviour
     public GameObject ShippingBinUI;
     public GameObject ShopUI;
     public GameObject CompostUI;
+    public GameObject pesticideUI;
     public CompostShower compost;
     public GameObject Backpack;
     public GameObject HaraUI;
+    public GameObject pesticideCrafter;
 
     NavMeshAgent agent;
     Animator animator;
@@ -92,7 +94,7 @@ public class PlayerController : MonoBehaviour
         }
         //Runs the function that handles all the interaction
         Interact();
-        if (CompostUI.activeInHierarchy || Backpack.gameObject.activeSelf ||HaraUI.gameObject.activeSelf)
+        if (CompostUI.activeInHierarchy || Backpack.gameObject.activeSelf ||HaraUI.gameObject.activeSelf || pesticideUI.gameObject.activeSelf)
         {
             ONui = true;
         }
@@ -117,11 +119,14 @@ public class PlayerController : MonoBehaviour
         {
             if(!ONui)
             {
-                ONui = compost.gameObject.GetComponent<CompostShower>().CompostUI();
+               // ONui = compost.gameObject.GetComponent<CompostShower>().CompostUI();
+                ONui = pesticideCrafter.GetComponent<CompostShower>().CompostUI();
+               
 
             }else { 
                 ONui = false;
-                compost.gameObject.GetComponent<CompostShower>().HideUI();
+                //compost.gameObject.GetComponent< CompostShower  >().HideUI();
+                pesticideCrafter.GetComponent<CompostShower>().HideUI();
             }
             Skipper.gameObject.GetComponent<TimeSkip>().TimeSkiper();
             playerInteraction.ItemInteract();

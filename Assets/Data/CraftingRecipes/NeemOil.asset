@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ddfcd72a0a36849a5047f373a61af7, type: 3}
+  m_Name: NeemOil
+  m_EditorClassIdentifier: 
+  Ingredients:
+  - {fileID: 11400000, guid: fb32f881398f66542b726fd70e65df2b, type: 2}
+  craftResult: {fileID: 11400000, guid: b30199e495f4ced4eac20e774289aafb, type: 2}

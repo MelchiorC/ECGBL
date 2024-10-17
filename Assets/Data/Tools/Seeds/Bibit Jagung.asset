@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0ebc6de5293224d8747bdbf4f1261f, type: 3}
   m_Name: Bibit Jagung
   m_EditorClassIdentifier: 
-  description: Bibit jagung (Zea mays) varietas JH 30. Varietas ini cocok ditanam
-    di dataran tinggi (>1500 mdpl)
+  description: Bibit jagung (Zea mays) varietas JH 29. Varietas ini cocok ditanam
+    di dataran tinggi (1000-1200 mdpl)
   thumbnail: {fileID: 21300000, guid: c0bf6e3e33485734586b48452690cfe0, type: 3}
   gameModel: {fileID: 0}
   cost: 2500
