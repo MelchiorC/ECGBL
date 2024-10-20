@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CropBehaviour : MonoBehaviour
 {
-    //Information on what the crop will grow into
+    // Information on what the crop will grow into
     public SeedData seedToGrow;
     SeedData waste;
     private Soil planted;
@@ -13,136 +13,162 @@ public class CropBehaviour : MonoBehaviour
     [Header("Stages of life")]
     public GameObject seed;
     public GameObject seedling;
+    public GameObject seedling2;
     public GameObject mature;
     public GameObject mature2;
+    public GameObject mature3;
     public GameObject harvestable;
 
-    //The growth points of the crop
+    // The growth points of the crop
     public int growth;
-    //How many growth points it takes before it becomes harvestable
+    // How many growth points it takes before it becomes harvestable
     int maxGrowth;
+
     public enum CropState
     {
-        Seed, Seedling, Mature, Mature2, Harvestable
+        Seed, Seedling, Seedling2, Mature, Mature2, Mature3, Harvestable
     }
-    //The current stage in the crop's growth
+
+    // The current stage in the crop's growth
     public CropState cropState;
 
-    //Initialization for the crop gameobject
-    //Called when the player plants a seed
+    // Initialization for the crop gameobject
     private void Start()
     {
         if (planted == null)
         {
             Debug.Log("planted");
         }
-
     }
+
     public void Plant(SeedData seedToGrow, Soil soil)
     {
-        //Save the seed information
         this.seedToGrow = seedToGrow;
-
-        //Instantiate the seedling gameobjects
         seedling = Instantiate(seedToGrow.seedling, transform);
+        seedling2 = Instantiate(seedToGrow.seedling2, transform);
         planted = soil;
-        //Instantiate the mature gameobjects
         mature = Instantiate(seedToGrow.mature, transform);
         mature2 = Instantiate(seedToGrow.mature2, transform);
-
-        //Access the crop item data
-        ItemData cropToYield = seedToGrow.cropToYield;
-        ItemData waste = seedToGrow.waste;
-
-        //Intstantiate the harvestable crop
+        mature3 = Instantiate(seedToGrow.mature3, transform);
         harvestable = Instantiate(seedToGrow.harvestable, transform);
 
-        //Convert days to grow into hours
-        int hoursToGrow = GameTimestamp.DaysToHours(seedToGrow.daysToGrow);
-        //Convert it to minutes
         maxGrowth = seedToGrow.daysToGrow;
 
-        //Set the initial state to seed
         SwitchState(CropState.Seed);
     }
 
-    //The crop will grow when watered
+    // The crop will grow when watered
     public void Grow()
     {
-        //Increase the growth poin by 1
+        // Increase the growth points by 1
         growth++;
 
-        //The seed will sprout into a seedling
+        // The seed will sprout into a seedling
         if (growth >= maxGrowth * 1 && cropState == CropState.Seed)
         {
             SwitchState(CropState.Seedling);
         }
 
-        //Grow from seedling to mature
-        if (growth >= maxGrowth * 2 && cropState == CropState.Seedling)
+        // Check if compost has been applied
+        if (planted.status.Compost)
         {
-            SwitchState(CropState.Mature);
-        }
+            // Skip Seedling2 and Mature3 if compost is applied
+            // Grow from seedling directly to mature
+            if (growth >= maxGrowth * 2 && cropState == CropState.Seedling)
+            {
+                SwitchState(CropState.Mature);
+            }
 
-        //Grow from mature to mature2
-        if (growth >= maxGrowth * 3 && cropState == CropState.Mature)
-        {
-            SwitchState(CropState.Mature2);
-        }
+            // Grow from mature to mature2
+            if (growth >= maxGrowth * 3 && cropState == CropState.Mature)
+            {
+                SwitchState(CropState.Mature2);
+            }
 
-        //Grow from mature to harvestable
-        if (growth >= maxGrowth * 4 && cropState == CropState.Mature2)
+            // Grow from mature2 directly to harvestable (skip Mature3)
+            if (growth >= maxGrowth * 4 && cropState == CropState.Mature2)
+            {
+                SwitchState(CropState.Harvestable);
+            }
+        }
+        else
         {
-            SwitchState(CropState.Harvestable);
+            // Normal growth process without compost
+            // Grow from seedling to seedling2
+            if (growth >= maxGrowth * 2 && cropState == CropState.Seedling)
+            {
+                SwitchState(CropState.Seedling2);
+            }
+
+            // Grow from seedling2 to mature
+            if (growth >= maxGrowth * 3 && cropState == CropState.Seedling2)
+            {
+                SwitchState(CropState.Mature);
+            }
+
+            // Grow from mature to mature2
+            if (growth >= maxGrowth * 4 && cropState == CropState.Mature)
+            {
+                SwitchState(CropState.Mature2);
+            }
+
+            // Grow from mature2 to mature3
+            if (growth >= maxGrowth * 5 && cropState == CropState.Mature2)
+            {
+                SwitchState(CropState.Mature3);
+            }
+
+            // Grow from mature3 to harvestable
+            if (growth >= maxGrowth * 6 && cropState == CropState.Mature3)
+            {
+                SwitchState(CropState.Harvestable);
+            }
         }
         gameObject.SetActive(true);
     }
 
-    //Function to handle the state changes
+
+    // Function to handle the state changes
     void SwitchState(CropState stateToSwitch)
     {
-        //Reset everything and set all gameobjects to inactive
         seed.SetActive(false);
         seedling.SetActive(false);
+        seedling2.SetActive(false);
         mature.SetActive(false);
         mature2.SetActive(false);
+        mature3.SetActive(false);
         harvestable.SetActive(false);
 
         switch (stateToSwitch)
         {
             case CropState.Seed:
-                //Enable the seed gameobject
                 seed.SetActive(true);
                 break;
-
             case CropState.Seedling:
-                //Enable the seedling gameobject
                 seedling.SetActive(true);
                 break;
-
+            case CropState.Seedling2:
+                seedling2.SetActive(true);
+                break;
             case CropState.Mature:
-                //Enable the mature gameobject
                 planted.status.Compost = false;
                 mature.SetActive(true);
                 break;
-
             case CropState.Mature2:
-                //Enable the mature2 gameobjects
                 mature2.SetActive(true);
                 break;
-
+            case CropState.Mature3:
+                mature3.SetActive(true);
+                break;
             case CropState.Harvestable:
                 harvestable.GetComponent<InteractableObject>().boost += planted.status.TotalPupuk;
                 if (planted.status.LandRotation)
                 {
                     harvestable.GetComponent<InteractableObject>().boost += 1;
                 }
-                //Enable the harvestable gameobject
                 planted.status.TotalPupuk = 0;
                 planted.status.Compost = false;
                 harvestable.SetActive(true);
-                harvestable.GetComponent<InteractableObject>();
-                //Unparent it to the crop
                 harvestable.transform.parent = null;
                 if (seedToGrow.seedType == "Legume")
                 {
@@ -155,7 +181,6 @@ public class CropBehaviour : MonoBehaviour
                 break;
         }
 
-        //Set the current crop state to the state we're switching to
         cropState = stateToSwitch;
     }
 }

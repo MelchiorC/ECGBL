@@ -86,49 +86,59 @@ public class PlayerController : MonoBehaviour
     {
         FaceTarget();
         SetAnimations();
-        if(Input.GetKeyDown(KeyCode.B))
+
+        if (Input.GetKeyDown(KeyCode.B))
         {
             UI.ToggleInventoryPanel();
         }
-        //Runs the function that handles all the interaction
+
+        // Runs the function that handles all the interaction
         Interact();
-        if (CompostUI.activeInHierarchy || Backpack.gameObject.activeSelf ||HaraUI.gameObject.activeSelf)
+
+        // Update ONui flag based on active UI elements, but allow movement if only HaraUI is active
+        if (CompostUI.activeInHierarchy || Backpack.gameObject.activeSelf)
         {
             ONui = true;
         }
-        else ONui = false;
+        else
+        {
+            ONui = false;  // HaraUI being active no longer sets ONui to true
+        }
     }
 
     public void Interact()
     {
-        //Tool interaction
+        // Tool interaction
         if (Input.GetKeyDown(KeyCode.F))
         {
-            //Interact
+            // Interact
             playerInteraction.Interact();
+
+            // Close HaraUI if interacting
             if (ONui)
             {
                 HaraUI.gameObject.SetActive(false);
             }
         }
 
-        //Item Interaction
+        // Item Interaction
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(!ONui)
+            if (!ONui)
             {
                 ONui = compost.gameObject.GetComponent<CompostShower>().CompostUI();
-
-            }else { 
+            }
+            else
+            {
                 ONui = false;
                 compost.gameObject.GetComponent<CompostShower>().HideUI();
             }
+
             Skipper.gameObject.GetComponent<TimeSkip>().TimeSkiper();
             playerInteraction.ItemInteract();
-           
         }
 
-        //Item Keep
+        // Item Keep
         if (Input.GetKeyDown(KeyCode.G))
         {
             playerInteraction.ItemKeep();
