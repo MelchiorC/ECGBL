@@ -15,7 +15,7 @@ public class Soil : MonoBehaviour, ITimeTracker
     public LandStatus landStatus;
     public Stat status;
     public UIHara Hara;
-
+    public string lastPlantedCropType;
     public Material DrySoilMat, WetSoilMat, GrowingMat, HarvestedMat, DefaultMat;
     public Material UsableUV, WateredUV;
 
@@ -274,6 +274,9 @@ public class Soil : MonoBehaviour, ITimeTracker
                     }
                         
                     break;
+                case EquipmentData.ToolType.Pesticide:
+                    cropPlanted.RevertDiseaseState();
+                    break;
             }
             //We don't need to check for seeds if we have already confirmed the tool to be a equipment
             return;
@@ -295,7 +298,18 @@ public class Soil : MonoBehaviour, ITimeTracker
 
             //Plant it with the seed's information
             cropPlanted.Plant(seedTool, this);
-
+            if (lastPlantedCropType == cropPlanted.seedToGrow.seedType)
+            {
+                status.sameCropPlanted++;
+            }
+            else
+            {
+                lastPlantedCropType = cropPlanted.seedToGrow.seedType;
+            }
+            if (status.sameCropPlanted >= 2)
+            {
+                cropPlanted.diseased = true;
+            }
             //Consume the item
             InventoryManager.Instance.ConsumeItem(InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Tool));
         }
