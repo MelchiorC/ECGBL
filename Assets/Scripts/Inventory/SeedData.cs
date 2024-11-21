@@ -32,4 +32,7 @@ public class SeedData : ItemData
     public ItemData waste;
 
     public string seedType;
+    //Temporary counter-measure for implementing disease, a better one will involve disease data which will be passed here
+    public Sprite diseaseImage;
+    public string diseaseName;
 }

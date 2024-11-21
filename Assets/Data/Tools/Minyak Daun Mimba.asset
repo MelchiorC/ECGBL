@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Ekstrak daun mimba yang digunakan untuk membasmi hama serangga, jamur
     dan bakteri.
-  thumbnail: {fileID: 21300000, guid: 29723b590e53f55469da1c57ef34276e, type: 3}
+  thumbnail: {fileID: 21300000, guid: edcbdebe11c203147bb754567b226f3f, type: 3}
   gameModel: {fileID: 0}
   cost: 0
   compostmaterial: 0

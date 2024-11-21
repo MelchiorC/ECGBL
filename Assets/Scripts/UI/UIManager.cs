@@ -226,7 +226,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
     {
         change.IsItWatered(water);
         change.CompostYes(compost);
-        change.StickYes(stick, treli);
+       /// change.StickYes(stick, treli);
         Hara.gameObject.SetActive(true);
     }
 

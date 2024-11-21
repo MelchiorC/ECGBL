@@ -177,7 +177,7 @@ public class CropBehaviour : MonoBehaviour
     public void RevertDiseaseState()
     {
         diseased = false;
-
+        UIManager.Instance.change.CuredDiseaseStatus();
         for (int i = 0; i < seedling.GetComponent<Renderer>().materials.Length; i++)
         {
             seedling.GetComponent<Renderer>().materials[i].SetColor("_BaseColor", materialsColors[0][i]);
@@ -226,6 +226,7 @@ public class CropBehaviour : MonoBehaviour
                 seedling.SetActive(true);
                 if (diseased)
                 {
+                    UIManager.Instance.change.DiseaseStatus(seedToGrow.diseaseImage, seedToGrow.diseaseName);
                     Material[] materials = seedling.GetComponent<Renderer>().materials;
                     foreach (Material m in materials)
                     {
@@ -235,8 +236,10 @@ public class CropBehaviour : MonoBehaviour
                 break;
             case CropState.Seedling2:
                 seedling2.SetActive(true);
+
                 if (diseased)
                 {
+                    UIManager.Instance.change.DiseaseStatus(seedToGrow.diseaseImage, seedToGrow.diseaseName);
                     Material[] materials = seedling2.GetComponent<Renderer>().materials;
                     foreach (Material m in materials)
                     {
@@ -249,6 +252,7 @@ public class CropBehaviour : MonoBehaviour
                 mature.SetActive(true);
                 if (diseased)
                 {
+                    UIManager.Instance.change.DiseaseStatus(seedToGrow.diseaseImage, seedToGrow.diseaseName);
                     Material[] materials = mature.GetComponent<Renderer>().materials;
 
                     foreach (Material m in materials)
@@ -262,6 +266,7 @@ public class CropBehaviour : MonoBehaviour
 
                 if (diseased)
                 {
+                    UIManager.Instance.change.DiseaseStatus(seedToGrow.diseaseImage, seedToGrow.diseaseName);
                     Material[] materials = mature2.GetComponent<Renderer>().materials;
                     foreach (Material m in materials)
                     {
@@ -273,6 +278,7 @@ public class CropBehaviour : MonoBehaviour
                 mature3.SetActive(true);
                 if (diseased)
                 {
+                    UIManager.Instance.change.DiseaseStatus(seedToGrow.diseaseImage, seedToGrow.diseaseName);
                     Material[] materials = mature3.GetComponent<Renderer>().materials;
                     foreach (Material m in materials)
                     {
@@ -292,6 +298,7 @@ public class CropBehaviour : MonoBehaviour
                 harvestable.transform.parent = null;
                 if (diseased)
                 {
+                    UIManager.Instance.change.DiseaseStatus(seedToGrow.diseaseImage, seedToGrow.diseaseName);
                     Material[] materials = harvestable.GetComponent<Renderer>().materials;
                     foreach (Material m in materials)
                     {

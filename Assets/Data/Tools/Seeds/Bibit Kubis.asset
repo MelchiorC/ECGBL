@@ -31,3 +31,5 @@ MonoBehaviour:
     type: 3}
   waste: {fileID: 11400000, guid: fd72c20ee4aa0ff4987f588489636cfb, type: 2}
   seedType: Kubis
+  diseaseImage: {fileID: 21300000, guid: 8584b99f111be5a488a5a109ce255c69, type: 3}
+  diseaseName: Busuk Hitam

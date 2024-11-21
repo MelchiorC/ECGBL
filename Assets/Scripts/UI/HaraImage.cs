@@ -16,11 +16,17 @@ public class HaraImage : MonoBehaviour
     public Sprite YesCompost;
     public GameObject CompostText;
 
+    /* Deprecated
     public GameObject Stick;
     public Sprite NoStick;
     public Sprite YesStick;
     public GameObject StickText;
     public GameObject StickBox;
+    */
+    public GameObject DiseaseImageHolder;
+    public GameObject DiseaseTextHolder;
+    public GameObject DiseaseInfoPlaceholder;
+   
 
     public void IsItWatered(bool water)
     {
@@ -41,7 +47,20 @@ public class HaraImage : MonoBehaviour
             text.text = "Tanaman belum disiram";
         }
     }
-
+    public void DiseaseStatus(Sprite diseaseImage,string diseaseName)
+    {
+        DiseaseImageHolder.GetComponent<Image>().sprite = diseaseImage;
+        DiseaseTextHolder.GetComponent<TMP_Text>().text = diseaseName;
+        DiseaseInfoPlaceholder.SetActive(true);
+        DiseaseImageHolder.SetActive(true);
+        DiseaseTextHolder.SetActive(true);
+    }
+    public void CuredDiseaseStatus()
+    {
+        DiseaseInfoPlaceholder.SetActive(false);
+        DiseaseImageHolder.SetActive(false);
+        DiseaseTextHolder.SetActive(false);
+    }
     public void CompostYes(bool compost) 
     {
         Image img = Compost.GetComponent<Image>();
@@ -61,27 +80,27 @@ public class HaraImage : MonoBehaviour
     public void StickYes(bool stick, bool treli)
     {
 
-            Image img = Stick.GetComponent<Image>();
-            TMP_Text text = StickText.GetComponent<TMP_Text>();
+            Image img = DiseaseImageHolder.GetComponent<Image>();
+            TMP_Text text = DiseaseTextHolder.GetComponent<TMP_Text>();
             if (treli == false)
             {
                 img.gameObject.SetActive(false);
                 text.gameObject.SetActive(false);
-                StickBox.gameObject.SetActive(false);
+                DiseaseInfoPlaceholder.gameObject.SetActive(false);
             }
             else
             {
                 img.gameObject.SetActive(true);
                 text.gameObject.SetActive(true);
-                StickBox.gameObject.SetActive(true);
+                DiseaseInfoPlaceholder.gameObject.SetActive(true);
                 if (stick == true)
                 {
-                    img.sprite = YesStick;
+                  //  img.sprite = YesStick;
                     text.text = "Tanaman sudah diberi penyangga";
                 }
                 else
                 {
-                    img.sprite = NoStick;
+                   // img.sprite = NoStick;
                     text.text = "Tanaman belum diberi penyangga";
                 }
             }
