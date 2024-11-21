@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     const string IDLE = "Idle";
     const string WALK = "Walk";
-    public Boolean ONui = false;
+    public bool ONui = false;
 
     public UIManager UI;
     CustomActions input;
@@ -17,8 +17,10 @@ public class PlayerController : MonoBehaviour
     public ShippingBin Bin;
     public GameObject ShippingBinUI;
     public GameObject ShopUI;
+    public GameObject PesticideCrafterUI;
     public GameObject CompostUI;
     public CompostShower compost;
+    public CompostShower pesticideCrafter;
     public GameObject Backpack;
     public GameObject HaraUI;
 
@@ -96,7 +98,7 @@ public class PlayerController : MonoBehaviour
         Interact();
 
         // Update ONui flag based on active UI elements, but allow movement if only HaraUI is active
-        if (CompostUI.activeInHierarchy || Backpack.gameObject.activeSelf)
+        if (CompostUI.activeInHierarchy || Backpack.gameObject.activeSelf || PesticideCrafterUI.activeSelf || CompostUI.activeSelf)
         {
             ONui = true;
         }
@@ -126,16 +128,24 @@ public class PlayerController : MonoBehaviour
         {
             if (!ONui)
             {
-                ONui = compost.gameObject.GetComponent<CompostShower>().CompostUI();
+                bool pest = pesticideCrafter.GetComponent<CompostShower>().CompostUI();
+                bool compostVal = compost.gameObject.GetComponent<CompostShower>().CompostUI();
+                Debug.Log("Pest : " + pest + "Compost Val : " + compostVal);
+                Debug.Log(pest || compostVal);
+                ONui = pest||compostVal; 
+
+
             }
             else
             {
+                Debug.Log("Called");
                 ONui = false;
                 compost.gameObject.GetComponent<CompostShower>().HideUI();
+                pesticideCrafter.GetComponent<CompostShower>().HideUI();
             }
-
             Skipper.gameObject.GetComponent<TimeSkip>().TimeSkiper();
             playerInteraction.ItemInteract();
+
         }
 
         // Item Keep

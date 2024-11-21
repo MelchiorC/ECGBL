@@ -9,43 +9,46 @@ public class CompostShower : MonoBehaviour
 {
 
     public GameObject UI;
+    public int[] allowedItemTypes;// input numeric code to allow the item to be put into the crafting slot. 
+    //Compost maker allowed item num = 1, pesticide itemIngredient = 2. Make sure the recipe contain these item with the codes, otherwise it wont work
     public Boolean OnTrigger = false;
     public List<ItemSlotData> playerInventory;
     public List<ItemSlotData> craftable;
-    
+    public List<RecipeData> recipes;
     public List<GameObject> craftingSlots;
     public List<GameObject> bagSlots;
     public List<GameObject> resultSlots;
     public int lastEmptyCraftingSlotId;
     public Sprite defaultSprite;
     [SerializeField]
-    public ItemData compost;
+    public ItemData compost;//at current, this implementation only handle one type of output
     public GameObject draggablePrefab;
-    public List<ItemData> recipe;
+    public List<ItemData> InputedRecipeIngredients;
     public static CompostShower instance;
     List<GameObject> spawnedDraggable;
     public int k;
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
     }
-    public Boolean CompostUI()
+    public bool CompostUI()
     {
-        recipe = new List<ItemData>();
+        InputedRecipeIngredients = new List<ItemData>();
         spawnedDraggable = new List<GameObject>();
         if (OnTrigger == true)
         {
+            UI.SetActive(true);
             playerInventory = new List<ItemSlotData>();
             List<ItemSlotData> temp = new List<ItemSlotData>();
             resultSlots[0].GetComponent<Image>().sprite = null;
-            foreach(GameObject g in craftingSlots)
+            foreach (GameObject g in craftingSlots)
             {
-                
+
             }
-            UI.SetActive(true);
+            
             playerInventory = InventoryManager.Instance.GetAllInventoryItems();
             temp = InventoryManager.Instance.GetAllInventoryItems();
             List<int> ints = new List<int>();
@@ -61,69 +64,78 @@ public class CompostShower : MonoBehaviour
             }
 
             int slots = UI.transform.Find("Inven").childCount;
-             k = 0;
+            k = 0;
             for (int i = 0; i < playerInventory.Count; i++)
             {
-            
-                if(k < UI.transform.Find("Inven").childCount)
+
+                if (k < UI.transform.Find("Inven").childCount)
                 {
-                   // UI.transform.Find("Inven").GetChild(k).GetComponent<Image>().sprite = playerInventory[i].thumbnail;
-                   
-                    GameObject g = Instantiate(draggablePrefab,UI.transform.Find("Inven"));
+                    // UI.transform.Find("Inven").GetChild(k).GetComponent<Image>().sprite = playerInventory[i].thumbnail;
+
+                    GameObject g = Instantiate(draggablePrefab, UI.transform.Find("Inven"));
                     g.transform.position = UI.transform.Find("Inven").GetChild(k).transform.position;
                     g.GetComponent<InventorySlot>().Display(playerInventory[i]);
                     g.GetComponent<DraggableInventoryCompost>().originSnappingPosition = UI.transform.Find("Inven").GetChild(k).transform.position;
+                    g.GetComponent<DraggableInventoryCompost>().compost = this;
                     spawnedDraggable.Add(g);
                     k++;
                 }
-              
-               /* bool found = false;
-                for (int j = 0; j < ints.Count; j++)
-                {
-                    if (i == ints[j])
-                    {
-                        found = true;
-                        break;
-                    }
-                }
-                if (found == false)
-                {
-                   
-                }*/
+
+                /* bool found = false;
+                 for (int j = 0; j < ints.Count; j++)
+                 {
+                     if (i == ints[j])
+                     {
+                         found = true;
+                         break;
+                     }
+                 }
+                 if (found == false)
+                 {
+
+                 }*/
             }
-        foreach (ItemSlotData item in playerInventory)
-        {
-            if (item.itemData.compostmaterial > 0)
+            foreach (ItemSlotData item in playerInventory)
             {
-                craftable.Add(item);
+                if (item.itemData.compostmaterial > 0)
+                {
+                    craftable.Add(item);
+                }
             }
-        }
-        return true;
+            Debug.Log(" called until here " + gameObject.name);
+            return true;
+           
         }
 
         return false;
     }
     public void HideUI()
     {
+        Debug.Log("Called");
         UI.SetActive(false);
-        foreach(GameObject g in spawnedDraggable)
+        foreach (GameObject g in spawnedDraggable)
         {
             Destroy(g);
         }
     }
-    public bool isCompostRecipe(ItemData data)
+    public bool isAllowed(ItemData data)
     {
-        if (data.compostmaterial == 1)
-            return true;
-        else
-            return false;
+        bool retValue = false;
+        for (int i = 0; i < allowedItemTypes.Length; i++)
+        {
+            if (data.compostmaterial == allowedItemTypes[i])
+            {
+                retValue = true;
+            }
+        }
+        return retValue;
     }
     public void AddItemToRecipe(ItemData data)
     {
         bool found = false;
-        foreach(ItemData item in recipe)
+        foreach (ItemData item in InputedRecipeIngredients)
         {
-            if(item == data)
+            if (item == data)
             {
                 found = true;
                 break;
@@ -131,15 +143,15 @@ public class CompostShower : MonoBehaviour
         }
         if (!found)
         {
-            recipe.Add(data);
+            InputedRecipeIngredients.Add(data);
         }
-       
-        
+
+
     }
     public void RemoveItemToRecipe(ItemData data)
     {
         bool found = false;
-        foreach (ItemData item in recipe)
+        foreach (ItemData item in InputedRecipeIngredients)
         {
             if (item == data)
             {
@@ -149,67 +161,56 @@ public class CompostShower : MonoBehaviour
         }
         if (found)
         {
-            recipe.Remove(data);
+            InputedRecipeIngredients.Remove(data);
         }
     }
-    
+
     public void Craft()
     {
-        GameObject g  = Instantiate(draggablePrefab);
+        //spawn crafted item
+        GameObject g = Instantiate(draggablePrefab);
         g.transform.parent = UI.transform.Find("Inven");
         g.transform.position = resultSlots[0].transform.position;
-        if(k < UI.transform.Find("Inven").childCount)
+        //add initial snapping position in inventory panel in this UI
+        if (k < UI.transform.Find("Inven").childCount)
         {
             g.GetComponent<DraggableInventoryCompost>().originSnappingPosition = UI.transform.Find("Inven").GetChild(k).transform.position;
 
         }
-        g.GetComponent<InventorySlot>().Display(new ItemSlotData(compost));
-        spawnedDraggable.Add(g);
-        resultSlots[0].GetComponent<Image>().sprite = defaultSprite;
-        InventoryManager.Instance.ShopToInventory(new ItemSlotData(compost));
-    }
-    
-
-    public void itemMovement(bool isResultSlot, int destId, int originId, int operation, int trueDest )
-    {
-        Debug.Log(originId);
-        Debug.Log(destId);
-        
-        
-        //
-        switch (operation)
+        //super naive, exhaustive, brute force method recipe matching
+        bool found = true;
+        RecipeData foundR = null;
+        foreach (RecipeData rd in recipes)
         {
-            //0 from bag to crafting slot, 1 from crafting slot back to bag, 2 from result to bag
-            case 0:
-                if (playerInventory[originId].itemData.compostmaterial <= 0)
-                    return;
-                craftingSlots[lastEmptyCraftingSlotId].GetComponent<Image>().sprite = craftable[originId].itemData.thumbnail;
-                //craftingSlots[lastEmptyCraftingSlotId].GetComponent<DraggableInventoryCompost>().trueDest = originId;
-                bagSlots[originId].GetComponent<Image>().sprite = defaultSprite;
-                
-                    if(lastEmptyCraftingSlotId < craftingSlots.Count - 1)
-                    {
-                        lastEmptyCraftingSlotId++;
-                    }
-                   break;
-            case 1:
-                craftingSlots[destId].GetComponent<Image>().sprite = defaultSprite;
-                bagSlots[trueDest].GetComponent<Image>().sprite = craftable[trueDest].itemData.thumbnail; ;
-                if (lastEmptyCraftingSlotId > 0)
+            found = true;
+            if (rd.Ingredients.Count > InputedRecipeIngredients.Count)
+                continue;//this means if the player input less ingredients that supposed to, it will skip the checking
+            for (int i = 0; i < InputedRecipeIngredients.Count; i++)
+            {
+                if (!rd.Ingredients.Contains(InputedRecipeIngredients[i]))
                 {
-                    lastEmptyCraftingSlotId--;
+                    found = false;
+                    break;//stop checking if the player input mismatched ingredient compared to the one currently checked.
                 }
+            }
+            if (!found)
+            {
+                continue;
+            }
+            else if (found)
+            {
+                foundR = rd;
                 break;
-            case 2:
-                bagSlots[2].GetComponent<Image>().sprite = compost.thumbnail;
-                resultSlots[0].GetComponent<Image>().sprite = defaultSprite;
-                InventoryManager.Instance.ShopToInventory(new ItemSlotData(compost));
-                //calculate last filledBag;
-                break;
-                
+            }
+            continue;
         }
+        //Initiate the item data component;
+        g.GetComponent<InventorySlot>().Display(new ItemSlotData(foundR.craftResult));
+        spawnedDraggable.Add(g);
+        Debug.Log(foundR);
+        resultSlots[0].GetComponent<Image>().sprite = foundR.craftResult.thumbnail;
+        InventoryManager.Instance.ShopToInventory(new ItemSlotData(foundR.craftResult));
     }
-
     private void OnTriggerEnter(Collider other)
     {
         OnTrigger = true;

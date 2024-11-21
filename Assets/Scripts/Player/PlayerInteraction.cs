@@ -33,7 +33,7 @@ public class PlayerInteraction : MonoBehaviour
     //Handles what happens when the interaction raycast hits something interactable
     void OnInteractableHit(RaycastHit hit)
     {
-        Debug.Log(hit.collider.gameObject.name);
+        //Debug.Log(hit.collider.gameObject.name);
         Collider other = hit.collider;
         
         //Check if the player is going to interact with soil

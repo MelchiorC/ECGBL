@@ -18,9 +18,9 @@ public class DraggableInventoryCompost : MonoBehaviour, IPointerClickHandler, ID
      */ //Obsolete
 
 
-    
+
     public Vector3 originSnappingPosition;
-    
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         // throw new System.NotImplementedException();
@@ -37,25 +37,26 @@ public class DraggableInventoryCompost : MonoBehaviour, IPointerClickHandler, ID
     public void OnEndDrag(PointerEventData eventData)
     {
         //compost.gameObject.GetComponent<CompostShower>().itemMovement(); // handler for the UI to put item and process it
-        
+
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
         //Debug.Log(results[0].gameObject.name);
         //Debug.Log(results[0].gameObject.tag);
-        if (results[1].gameObject.tag == "CraftingSlotCompost" && CompostShower.instance.isCompostRecipe(gameObject.GetComponent<InventorySlot>().GetItemSlotData()))
+        if (results[1].gameObject.tag == "CraftingSlotCompost" && compost.isAllowed(gameObject.GetComponent<InventorySlot>().GetItemSlotData()))
         {
             this.gameObject.transform.position = results[1].gameObject.transform.position;
-            CompostShower.instance.AddItemToRecipe(gameObject.GetComponent<InventorySlot>().GetItemSlotData());
-        } else if(results[1].gameObject.tag == "BagCraftingSlot")
+            compost.AddItemToRecipe(gameObject.GetComponent<InventorySlot>().GetItemSlotData());
+        }
+        else if (results[1].gameObject.tag == "BagCraftingSlot")
         {
             this.gameObject.transform.position = results[1].gameObject.transform.position;
-            
+
         }
         else
         {
             this.gameObject.transform.position = originSnappingPosition;
             this.gameObject.GetComponent<RectTransform>().localScale = Vector3.one;
-            if(results[1].gameObject.tag != "CraftingSlotCompost")
+            if (results[1].gameObject.tag != "CraftingSlotCompost")
             {
                 CompostShower.instance.RemoveItemToRecipe(gameObject.GetComponent<InventorySlot>().GetItemSlotData());
             }
